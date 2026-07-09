@@ -585,13 +585,17 @@
   .mbar { display: none; }
   @media (max-width: 860px) {
     .wgrid {
-      display: flex; gap: 12px; overflow-x: auto; overscroll-behavior-x: contain;
+      display: flex; gap: 14px; overflow-x: auto; overscroll-behavior-x: contain;
       scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-      margin-inline: -24px; padding: 4px 24px 8px; scroll-padding-inline: 24px;
-      scrollbar-width: none;
+      margin-inline: -24px; padding: 4px 0 8px;
+      scrollbar-width: none; perspective: 1200px;
     }
+    .wgrid::before, .wgrid::after { content: ""; flex: 0 0 4vw; }
     .wgrid::-webkit-scrollbar { display: none; }
-    .wgrid .card { flex: 0 0 84%; max-width: 430px; scroll-snap-align: start; }
+    .wgrid .card { flex: 0 0 92%; max-width: 460px; scroll-snap-align: center; }
+    /* clip the stage to its own rounded top locally — robust under the card's transform (iOS) */
+    .wgrid .card .card__stage { clip-path: inset(0 round 20px 20px 0 0); }
+    .feat__stage { clip-path: inset(0 round 20px 20px 0 0); }
     .wcount { display: block; }
     .feat__stage { order: -1; border-top: none; border-bottom: 1px solid var(--line); min-height: 300px; }
     .mbar {
@@ -607,15 +611,63 @@
     .mbar svg { width: 15px; height: 15px; }
     .mbar.on { transform: translateY(0); }
 
-    /* juice: jelly stretch + carousel physics */
-    .wgrid .card { transform: rotate(var(--rot, 0deg)) scale(var(--sc, 1)); transition: border-color 0.3s, box-shadow 0.4s; }
-    .wgrid .card .comp { translate: calc(var(--px, 0px) + var(--gx, 0px)) var(--gy, 0px); }
+    /* juice: jelly stretch (carousel cards use scroll-driven dematerialize below) */
+    /* zero the physics vars on carousel cards so the var-driven jelly/gyro/tilt
+       rules all compute to identity here — neutralizes the live translate that
+       used to push the stage image past the card's rounded border */
+    .wgrid .card { transition: border-color 0.3s, box-shadow 0.4s; --gx: 0px; --gy: 0px; --jy: 0; --px: 0px; --rot: 0deg; --sc: 1; }
     .wgrid.bump { animation: wbump 0.55s cubic-bezier(0.34, 1.56, 0.64, 1); transform-origin: var(--bo, 0%) 50%; }
     .sec__title { transform: scaleY(calc(1 + var(--jy, 0) * 0.07)); transform-origin: 50% 100%; }
     .card__stage .comp, .feat__stage .comp { transform: scaleY(calc(1 + var(--jy, 0) * 0.05)); }
     .stat b { transform: scaleY(calc(1 + var(--jy, 0) * 0.14)); transform-origin: 0 100%; }
     .founder__photo img { transform: scaleY(calc(1 + var(--jy, 0) * 0.045)); }
     .cap__name { display: inline-block; transform: scaleY(calc(1 + var(--jy, 0) * 0.09)); transform-origin: 0 100%; }
+  }
+
+  /* ── carousel: scroll-driven dematerialize ──
+     Each card materializes crisp on the way in, holds, then evaporates on the
+     way out — layers parallax apart (comp recedes, copy advances), blur + fade
+     rise, and a lime scanline sweeps it away. Falls back to a clean full-width
+     snap carousel where view() timelines aren't supported. */
+  @supports (animation-timeline: view()) {
+    @media (max-width: 860px) and (prefers-reduced-motion: no-preference) {
+      .wgrid .card {
+        animation: cardDemat linear both;
+        animation-timeline: view(inline);
+        animation-range: cover 0% cover 100%;
+        transform-origin: 50% 48%;
+      }
+      @keyframes cardDemat {
+        0%   { opacity: 0; transform: translateX(7%) scale(0.93) rotateY(-14deg); filter: blur(5px); }
+        10%  { opacity: 1; transform: translateX(0) scale(1) rotateY(0deg); filter: blur(0); }
+        66%  { opacity: 1; transform: none; filter: blur(0); }
+        100% { opacity: 0; transform: translateX(-3%) scale(0.9) rotateY(12deg); filter: blur(6px); }
+      }
+      .wgrid .card .comp {
+        animation: dematBack linear both;
+        animation-timeline: view(inline);
+        animation-range: cover 66% cover 100%;
+      }
+      @keyframes dematBack { from { transform: none; } to { transform: translateX(-10px) scale(1.06); } }
+      .wgrid .card .card__info {
+        animation: dematFwd linear both;
+        animation-timeline: view(inline);
+        animation-range: cover 66% cover 100%;
+      }
+      @keyframes dematFwd { from { transform: none; opacity: 1; } to { transform: translateX(11px); opacity: 0.45; } }
+      .wgrid .card::after {
+        content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; z-index: 6; pointer-events: none;
+        background: var(--live); box-shadow: 0 0 16px var(--live), 0 0 5px var(--live); opacity: 0;
+        animation: dematScan linear both;
+        animation-timeline: view(inline);
+        animation-range: cover 68% cover 98%;
+      }
+      @keyframes dematScan { 0% { opacity: 0; top: 0; } 30% { opacity: 0.95; } 100% { opacity: 0; top: 100%; } }
+      body[data-motion="calm"] .wgrid .card,
+      body[data-motion="calm"] .wgrid .card .comp,
+      body[data-motion="calm"] .wgrid .card .card__info,
+      body[data-motion="calm"] .wgrid .card::after { animation: none; }
+    }
   }
   @media (max-width: 640px) {
     .pipe__row { grid-template-columns: 1fr auto; gap: 6px 14px; padding: 18px; }
