@@ -546,11 +546,26 @@
     .spot__lede { text-align: left; }
   }
   @media (max-width: 640px) {
-    .spot__title { font-size: clamp(58px, 19vw, 92px); }
-    .spot__feats { gap: 8px; }
-    .spot__feat { padding: 11px 12px; font-size: 12.5px; gap: 9px; }
-    .spot__feat svg { width: 17px; height: 17px; }
-    .spot__stats { grid-template-columns: 1fr 1fr; }
+    /* compact spotlight — the full stack runs ~1.7 screens otherwise */
+    .spot__grid { gap: 22px; }
+    .spot__title { font-size: clamp(50px, 15vw, 72px); margin-top: 12px; }
+    .spot__sub { font-size: 17px; margin-top: 8px; }
+    .spot__desc { font-size: 14px; margin-top: 12px; line-height: 1.55; }
+    .spot__eyebrow, .spot__note { display: none; }
+    .spot__feats { gap: 6px; margin-top: 14px; }
+    .spot__feat { padding: 8px 10px; font-size: 11.5px; gap: 7px; border-radius: 9px; }
+    .spot__feat svg { width: 14px; height: 14px; }
+    .spot__tags { margin-top: 12px; padding: 8px 12px; }
+    .spot__tags span { font-size: 10.5px; }
+    .spot__tags span + span::before { margin: 0 6px; }
+    .duo { padding: 4px 0 6px; }
+    .spot__stats { grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 10px; }
+    .spot__stat { padding: 10px 3px; border-radius: 10px; }
+    .spot__stat b { font-size: 16.5px; }
+    .spot__stat span { font-size: 6.6px; letter-spacing: 0.04em; margin-top: 3px; }
+    .spot__trust { margin-top: 28px; padding-top: 18px; }
+    .spot__logos { margin-top: 12px; }
+    .spot__logos b { font-size: 14px; }
     .phone3d { width: clamp(210px, 56vw, 262px); }
     .frag { padding: 10px 12px; border-radius: 12px; }
     .frag b { font-size: 11.5px; }
@@ -561,7 +576,7 @@
     .frag--live { left: -2px; bottom: 12%; }
     .frag--live .frag__num em { display: none; }
     .frag--pay { right: -6px; bottom: 34%; }
-    .spot__logos { gap: 18px 26px; }
+    .spot__logos { gap: 12px 22px; }
   }
 
   /* ── "also built" compact card ── */
