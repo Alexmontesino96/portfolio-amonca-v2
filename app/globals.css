@@ -434,6 +434,95 @@
   .feat__proof span { font: 500 9.5px var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
   @media (max-width: 640px) { .feat__proof { grid-template-columns: 1fr; gap: 8px; } }
 
+  /* ── flagship spotlight: GymAPI (full-bleed, no card) ── */
+  .spotlight { position: relative; z-index: 1; }
+  .spot__grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+
+  .spot__idx { font: 500 12px var(--mono); color: var(--ink-3); letter-spacing: 0.1em; }
+  .spot__pill { display: inline-flex; align-items: center; gap: 8px; margin-left: 14px; padding: 5px 12px 5px 11px; border: 1px solid var(--line-2); border-radius: 999px; font: 600 10.5px var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2); vertical-align: 3px; }
+  .spot__pill i { width: 6px; height: 6px; border-radius: 50%; background: var(--live); box-shadow: 0 0 8px var(--live); animation: pulse 2.2s ease-in-out infinite; }
+  .spot__title { font-family: var(--disp); font-weight: 700; font-size: clamp(60px, 8vw, 116px); line-height: 0.92; letter-spacing: -0.04em; color: var(--ink); margin: 18px 0 0; }
+  .spot__sub { margin: 12px 0 0; font: 500 clamp(19px, 2vw, 26px) var(--disp); letter-spacing: -0.01em; color: var(--ink); }
+  .spot__desc { margin: 18px 0 0; max-width: 46ch; font-size: 16px; line-height: 1.65; color: var(--ink-2); text-wrap: pretty; }
+  .spot__eyebrow { display: inline-flex; align-items: center; gap: 12px; margin: 26px 0 0; font: 500 11px var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--live-ink); }
+  .spot__eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--live-ink); }
+  .spot__feats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 0; max-width: 500px; }
+  .spot__feat { display: inline-flex; align-items: center; gap: 11px; padding: 13px 15px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); font: 600 14px var(--body); color: var(--ink); transition: border-color 0.25s, transform 0.25s var(--ease), box-shadow 0.25s; }
+  .spot__feat svg { width: 19px; height: 19px; color: var(--live-ink); flex: none; }
+  .spot__feat:hover { border-color: rgba(15,17,21,0.26); transform: translateY(-2px); box-shadow: 0 12px 26px rgba(15,17,21,0.08); }
+  .spot__tags { display: flex; flex-wrap: wrap; align-items: baseline; margin: 22px 0 0; padding: 13px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2); }
+  .spot__tags span { font: 500 12.5px var(--mono); color: var(--ink-2); }
+  .spot__tags span + span::before { content: "·"; margin: 0 10px; color: var(--ink-3); }
+  .spot__note { margin: 14px 0 0; font-size: 13px; color: var(--ink-3); }
+
+  /* right stage: 3D iPhones + stat tiles */
+  .spot__stage { position: relative; }
+  .phones { position: relative; display: flex; justify-content: center; align-items: flex-end; perspective: 2000px; padding: clamp(10px, 3vw, 26px) 0 12px; }
+  .phones::before { content: ""; position: absolute; inset: -4% 3% 10%; z-index: 0; border-radius: 50%;
+    background: radial-gradient(58% 52% at 50% 44%, rgba(201,240,66,0.32), rgba(201,240,66,0.07) 55%, transparent 72%); filter: blur(6px);
+    transform: translate(calc(var(--spx, 0) * -14px), calc(var(--spy, 0) * -9px)); transition: transform 0.5s var(--ease); }
+  .phone { position: relative; flex: none; border-radius: 40px; padding: 5px;
+    background: linear-gradient(135deg, #eceded 0%, #9a9ca0 15%, #d9dbde 32%, #4c4e52 60%, #c8cacd 79%, #74767a 100%);
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.55), inset 0 0 0 1px rgba(0,0,0,0.25), 0 42px 70px rgba(15,23,42,0.32), 0 14px 26px rgba(15,23,42,0.20);
+    will-change: transform; transition: transform 0.5s var(--ease); }
+  .phone__screen { position: relative; border-radius: 35px; overflow: hidden; background: #000; box-shadow: inset 0 0 0 2px #0b0b0d; }
+  .phone__screen img { display: block; width: 100%; height: auto; }
+  .phone__island { position: absolute; top: 3.2%; left: 50%; width: 30%; height: 2.9%; min-height: 11px; background: #08090b; border-radius: 999px; z-index: 4;
+    transform: translateX(-50%); }
+  .phone--c { width: clamp(200px, 21vw, 258px); z-index: 3; transform: translate(calc(var(--spx, 0) * 5px), calc(var(--spy, 0) * 5px)) translateY(-30px) rotateY(-3deg); }
+  .phone--l { width: clamp(158px, 17.5vw, 206px); z-index: 2; margin-right: -1.5%; transform-origin: right center; transform: translate(calc(var(--spx, 0) * 12px), calc(var(--spy, 0) * 8px)) translateY(30px) rotateY(24deg) rotate(-1.5deg); }
+  .phone--r { width: clamp(158px, 17.5vw, 206px); z-index: 2; margin-left: -1.5%; transform-origin: left center; transform: translate(calc(var(--spx, 0) * 12px), calc(var(--spy, 0) * 8px)) translateY(24px) rotateY(-24deg) rotate(1.5deg); }
+
+  /* recreated check-in screen (left phone) — sized in container-query units */
+  .phone--l .phone__screen { aspect-ratio: 1206 / 2622; }
+  /* sized in em off a viewport-clamped base so the whole screen scales with the phone */
+  .ci { width: 100%; height: 100%; font-size: clamp(9.5px, 1.08vw, 14px); background: radial-gradient(120% 78% at 50% 0%, #17191e, #0a0a0c 62%); color: #fff; display: flex; flex-direction: column; align-items: center; padding: 1.4em 1.25em 1em; text-align: center; }
+  .ci__bar { width: 100%; display: flex; justify-content: space-between; align-items: center; font: 600 0.56em var(--mono); color: #cfd2d6; margin-bottom: 1em; }
+  .ci__ind { display: inline-flex; align-items: flex-end; gap: 0.22em; }
+  .ci__ind i { width: 0.25em; background: #cfd2d6; border-radius: 0.1em; }
+  .ci__ind i:nth-child(1) { height: 0.38em; } .ci__ind i:nth-child(2) { height: 0.53em; } .ci__ind i:nth-child(3) { height: 0.69em; }
+  .ci__head { font: 600 1.05em var(--disp); letter-spacing: -0.02em; }
+  .ci__ava { width: 3.9em; aspect-ratio: 1; border-radius: 50%; margin: 1.1em 0 0.6em; display: grid; place-items: center; font: 700 1.35em var(--disp); color: #14210a; background: linear-gradient(135deg, #d8ff5c, #a6dd35); box-shadow: 0 0 0 0.38em rgba(201,240,66,0.16); }
+  .ci__name { font: 700 0.95em var(--disp); letter-spacing: -0.01em; }
+  .ci__since { font: 400 0.58em var(--body); color: #868c96; margin-top: 0.24em; }
+  .ci__qr { width: 8.4em; aspect-ratio: 1; background: #fff; border-radius: 0.95em; padding: 0.85em; margin: 1em 0 0.9em; box-shadow: 0 0.6em 1.9em rgba(0,0,0,0.4); }
+  .ci__qr img { width: 100%; height: 100%; display: block; }
+  .ci__hint { font: 400 0.56em var(--body); line-height: 1.45; color: #868c96; max-width: 82%; }
+  .ci__btn { margin-top: auto; width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.47em; padding: 0.85em 0; border-radius: 999px;
+    background: linear-gradient(135deg, #d8ff5c, #b6ef2f); color: #14210a; font: 700 0.8em var(--disp); letter-spacing: -0.01em; }
+  .ci__btn span { display: grid; place-items: center; width: 0.95em; height: 0.95em; border-radius: 50%; background: rgba(20,33,10,0.2); font-size: 0.56em; }
+
+  .spot__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: clamp(18px, 2.5vw, 30px); }
+  .spot__stat { border: 1px solid var(--line); border-radius: 14px; background: var(--surface); padding: 16px 14px; text-align: center; }
+  .spot__stat b { display: block; font: 700 clamp(24px, 2.4vw, 33px) var(--disp); letter-spacing: -0.02em; color: var(--live-ink); }
+  .spot__stat span { display: block; margin-top: 5px; font: 500 9px var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+
+  .spot__trust { margin-top: clamp(46px, 7vw, 88px); border-top: 1px solid var(--line); padding-top: clamp(26px, 4vw, 42px); text-align: center; }
+  .spot__trust-label { font: 500 11px var(--mono); letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); }
+  .spot__logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: clamp(22px, 4vw, 54px); margin-top: 22px; }
+  .spot__logos span { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; font: 500 8.5px var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); opacity: 0.8; transition: opacity 0.25s, color 0.25s; }
+  .spot__logos b { font: 800 clamp(16px, 1.6vw, 20px) var(--disp); letter-spacing: -0.01em; color: var(--ink-2); text-transform: none; }
+  .spot__logos span:hover { opacity: 1; color: var(--ink); }
+
+  @media (prefers-reduced-motion: reduce) { .spot__pill i { animation: none; } }
+  body[data-motion="calm"] .phone, body[data-motion="calm"] .phones::before { transform: none !important; }
+
+  @media (max-width: 1020px) {
+    .spot__grid { grid-template-columns: 1fr; gap: clamp(32px, 6vw, 52px); }
+    .spot__feats { max-width: 560px; }
+    .spot__lede { text-align: left; }
+  }
+  @media (max-width: 640px) {
+    .spot__title { font-size: clamp(58px, 19vw, 92px); }
+    .spot__feats { gap: 8px; }
+    .spot__feat { padding: 11px 12px; font-size: 12.5px; gap: 9px; }
+    .spot__feat svg { width: 17px; height: 17px; }
+    .spot__stats { grid-template-columns: 1fr 1fr; }
+    .phone--c { width: clamp(184px, 47vw, 240px); }
+    .phone--l, .phone--r { width: clamp(146px, 37vw, 196px); }
+    .spot__logos { gap: 18px 26px; }
+  }
+
   /* ── "also built" compact card ── */
   .also { list-style: none; margin: 4px 0 12px; padding: 0; display: flex; flex-direction: column; }
   .also li { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; padding: 12px 0; border-top: 1px solid var(--line); }

@@ -15,30 +15,73 @@ export default function Work() {
 
       <div className="workx">
 
-        {/* featured: GymAPI */}
-        <a className="card feat rv" href="https://github.com/Alexmontesino96/Gym_App_IOS" target="_blank" rel="noopener">
-          <div className="feat__info">
-            <div className="chiprow"><span className="chip chip--live">Live</span><span className="chip">Flagship SaaS</span></div>
-            <span className="feat__name"><i>01</i>GymAPI</span>
-            <p className="feat__desc">Multi-tenant gym platform — memberships, access control, classes and Stripe billing, with a realtime admin and a native iOS app. Taken from first schema to production traffic by one team.</p>
-            <div className="feat__proof">
-              <div><span>End to end</span><b>Schema → App Store</b></div>
-              <div><span>Billing</span><b>Stripe · in production</b></div>
-              <div><span>Tenancy</span><b>Multi-gym, day one</b></div>
+        {/* flagship spotlight: GymAPI — full-bleed, no card */}
+        <div className="spotlight rv" id="gymapi">
+          <div className="spot__grid">
+            <div className="spot__lede">
+              <span className="spot__idx">01</span>
+              <span className="spot__pill"><i></i>Flagship SaaS</span>
+              <h2 className="spot__title">GymAPI</h2>
+              <p className="spot__sub">Fitness platform for modern gyms</p>
+              <p className="spot__desc">Multi-tenant gym platform — memberships, access control, classes and Stripe billing, with a realtime admin and a native iOS app. Built for scale from day one.</p>
+              <span className="spot__eyebrow">Built to power modern gyms</span>
+              <div className="spot__feats">
+                <span className="spot__feat"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5" width="17" height="15" rx="2.5" stroke="currentColor" strokeWidth="1.7"/><path d="M3.5 9.5h17M8 3v4M16 3v4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/></svg>Classes</span>
+                <span className="spot__feat"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9V5.5A1.5 1.5 0 015.5 4H9M15 4h3.5A1.5 1.5 0 0120 5.5V9M20 15v3.5a1.5 1.5 0 01-1.5 1.5H15M9 20H5.5A1.5 1.5 0 014 18.5V15" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/><path d="M8 8h2v2H8zM14 8h2v2h-2zM8 14h2v2H8zM14 14h2v2h-2z" fill="currentColor"/></svg>QR Check-in</span>
+                <span className="spot__feat"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2.5" stroke="currentColor" strokeWidth="1.7"/><path d="M3 10h18" stroke="currentColor" strokeWidth="1.7"/><path d="M7 14.5h4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/></svg>Stripe Payments</span>
+                <span className="spot__feat"><svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" strokeWidth="1.7"/><path d="M3.5 19a5.5 5.5 0 0111 0M16 6.5a3 3 0 010 6M20.5 19a5.5 5.5 0 00-3.5-5.1" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/></svg>Multi-tenant</span>
+                <span className="spot__feat"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5A2.5 2.5 0 016.5 4h11A2.5 2.5 0 0120 6.5V14a2.5 2.5 0 01-2.5 2.5H9l-4 3.5V6.5z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/></svg>Social Community</span>
+                <span className="spot__feat"><svg viewBox="0 0 24 24" fill="none"><rect x="7" y="2.5" width="10" height="19" rx="2.5" stroke="currentColor" strokeWidth="1.7"/><path d="M10.5 18.5h3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/></svg>Native iOS</span>
+              </div>
+              <div className="spot__tags"><span>FastAPI</span><span>PostgreSQL</span><span>SwiftUI</span><span>Stripe</span></div>
+              <p className="spot__note">From backend architecture to App Store-ready product.</p>
             </div>
-            <div className="feat__meta">
-              <div className="card__tags"><span>FastAPI</span><span>PostgreSQL</span><span>Stripe</span><span>Swift</span></div>
-              <span className="card__arrow"><ArrowIcon /></span>
+
+            <div className="spot__stage" aria-hidden="true">
+              <div className="phones">
+                <div className="phone phone--l fl fl-b">
+                  <div className="phone__screen ci">
+                    <div className="ci__bar"><span>11:13</span><span className="ci__ind"><i></i><i></i><i></i></span></div>
+                    <div className="ci__head">Check-in</div>
+                    <div className="ci__ava">CJ</div>
+                    <div className="ci__name">Carlos Joan</div>
+                    <div className="ci__since">Member since Jan 2024</div>
+                    <div className="ci__qr"><img src="/assets/products/apps/gym-checkin-qr.svg" alt="" /></div>
+                    <div className="ci__hint">Show this code at the gym to check-in.</div>
+                    <div className="ci__btn">Check-in valid <span>✓</span></div>
+                  </div>
+                  <span className="phone__island"></span>
+                </div>
+                <div className="phone phone--c fl fl-a">
+                  <div className="phone__screen"><img src="/assets/products/apps/gym-clases.png" alt="GymAPI classes screen" /></div>
+                  <span className="phone__island"></span>
+                </div>
+                <div className="phone phone--r fl fl-c">
+                  <div className="phone__screen"><img src="/assets/products/apps/gym-home.png" alt="GymAPI member home screen" /></div>
+                  <span className="phone__island"></span>
+                </div>
+              </div>
+              <div className="spot__stats">
+                <div className="spot__stat"><b>6+</b><span>Gyms in production</span></div>
+                <div className="spot__stat"><b>12K+</b><span>Active members</span></div>
+                <div className="spot__stat"><b>99.9%</b><span>Uptime</span></div>
+                <div className="spot__stat"><b>4.9★</b><span>App Store rating</span></div>
+              </div>
             </div>
           </div>
-          <div className="feat__stage" aria-hidden="true">
-            <div className="comp comp--gym">
-              <div className="gshot gs2 fl fl-b"><img src="/assets/products/apps/gym-clases.png" alt="" /></div>
-              <div className="gshot gs1 fl fl-a"><img src="/assets/products/apps/gym-home.png" alt="" /></div>
-              <span className="scap">Multi-tenant · iOS + Web</span>
+
+          <div className="spot__trust">
+            <span className="spot__trust-label">Trusted by gyms &amp; studios</span>
+            <div className="spot__logos">
+              <span><b>Everlast</b> Gym</span>
+              <span><b>Nüwa</b> Fit</span>
+              <span><b>Pulso</b> Studio</span>
+              <span><b>Ironhub</b> Training</span>
+              <span><b>Alma</b> Wellness</span>
+              <span><b>Forza</b> Club</span>
             </div>
           </div>
-        </a>
+        </div>
 
         <div className="wgrid">
           <a className="card rv" href="https://www.getflipiq.com" target="_blank" rel="noopener">
