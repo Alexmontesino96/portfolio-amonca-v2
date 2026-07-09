@@ -1,5 +1,11 @@
 import ArrowIcon from "./ArrowIcon";
 
+/* The hand-drawn GymAPI sketches are baked to PNGs (public/assets/products/
+   apps/gym-sketch-*.png) because the live feTurbulence/feDisplacementMap
+   filter costs ~30fps while scrolling. Flip to true to render the live
+   filtered DOM again (edit, then re-bake with a 2x element screenshot). */
+const LIVE_SKETCH = false;
+
 // ═══════════ WORK ═══════════
 export default function Work() {
   return (
@@ -41,12 +47,8 @@ export default function Work() {
               <div className="wfstage">
                 <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
                   <filter id="wf-rough" x="-4%" y="-4%" width="108%" height="108%">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.016 0.022" numOctaves="2" seed="7" result="n" />
+                    <feTurbulence type="fractalNoise" baseFrequency="0.016 0.022" numOctaves="1" seed="7" result="n" />
                     <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G" />
-                  </filter>
-                  <filter id="wf-rough-lg" x="-6%" y="-6%" width="112%" height="112%">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.008 0.011" numOctaves="2" seed="3" result="n" />
-                    <feDisplacementMap in="SourceGraphic" in2="n" scale="4.5" xChannelSelector="R" yChannelSelector="G" />
                   </filter>
                 </svg>
                 <i className="wf-circle"></i>
@@ -68,7 +70,7 @@ export default function Work() {
                 <div className="phones">
                   {/* left — check-in (sketch → colored recreation) */}
                   <div className="wfp wfp--l">
-                    <div className="wfp__sketch">
+                    {LIVE_SKETCH ? <div className="wfp__sketch">
                       <i className="wfs__island"></i>
                       <div className="wfs wfs--ci">
                         <div className="wfs__bar"><span>11:13</span><span className="wfs__sig"><i></i><i></i><i></i></span></div>
@@ -82,7 +84,7 @@ export default function Work() {
                         <div className="wfs__center wfs__mut wfs__hint">Show this code at the gym to check-in.</div>
                         <div className="wfs__pillbtn">Check-in valid <i>✓</i></div>
                       </div>
-                    </div>
+                    </div> : <img className="wfp__sketch wfp__sketch--img" src="/assets/products/apps/gym-sketch-l.png" alt="" />}
                     <div className="wfp__color phone">
                       <div className="phone__screen ci">
                         <div className="ci__bar"><span>11:13</span><span className="ci__ind"><i></i><i></i><i></i></span></div>
@@ -100,7 +102,7 @@ export default function Work() {
 
                   {/* center — classes (sketch → real screenshot) */}
                   <div className="wfp wfp--c">
-                    <div className="wfp__sketch">
+                    {LIVE_SKETCH ? <div className="wfp__sketch">
                       <i className="wfs__island"></i>
                       <div className="wfs wfs--cl">
                         <div className="wfs__bar"><span>11:13</span><span className="wfs__sig"><i></i><i></i><i></i></span></div>
@@ -158,7 +160,7 @@ export default function Work() {
                           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"><circle cx="12" cy="8.5" r="3.5" /><path d="M5 20c1.6-4 4.3-6 7-6s5.4 2 7 6" /></svg>Perfil</span>
                         </div>
                       </div>
-                    </div>
+                    </div> : <img className="wfp__sketch wfp__sketch--img" src="/assets/products/apps/gym-sketch-c.png" alt="" />}
                     <div className="wfp__color phone">
                       <div className="phone__screen"><img src="/assets/products/apps/gym-clases.png" alt="" /></div>
                       <span className="phone__island"></span>
@@ -167,7 +169,7 @@ export default function Work() {
 
                   {/* right — member home (sketch → real screenshot) */}
                   <div className="wfp wfp--r">
-                    <div className="wfp__sketch">
+                    {LIVE_SKETCH ? <div className="wfp__sketch">
                       <i className="wfs__island"></i>
                       <div className="wfs wfs--hm">
                         <div className="wfs__bar"><span>11:13</span><span className="wfs__sig"><i></i><i></i><i></i></span></div>
@@ -196,7 +198,7 @@ export default function Work() {
                           <div className="wfs__days2"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
                         </div>
                       </div>
-                    </div>
+                    </div> : <img className="wfp__sketch wfp__sketch--img" src="/assets/products/apps/gym-sketch-r.png" alt="" />}
                     <div className="wfp__color phone">
                       <div className="phone__screen"><img src="/assets/products/apps/gym-home.png" alt="" /></div>
                       <span className="phone__island"></span>

@@ -461,19 +461,19 @@
     --wf-hand: "Architects Daughter", "Comic Sans MS", cursive;
     position: relative; padding: 38px 62px 70px; }
   .wf-circle { position: absolute; left: 50%; top: 44%; width: min(150%, 560px); aspect-ratio: 1; transform: translate(-50%, -50%);
-    border: 1.7px solid var(--wf-faint); border-radius: 49% 51% 50% 50% / 51% 49% 51% 49%; pointer-events: none; filter: url(#wf-rough-lg); }
-  .wf-hair { position: absolute; left: 0; right: 0; height: 1.6px; pointer-events: none; filter: url(#wf-rough-lg);
+    border: 1.7px solid var(--wf-faint); border-radius: 49% 51% 50% 50% / 51% 49% 51% 49%; pointer-events: none; rotate: -0.4deg; }
+  .wf-hair { position: absolute; left: 0; right: 0; height: 1.6px; pointer-events: none; rotate: 0.25deg;
     background: repeating-linear-gradient(90deg, var(--wf-faint) 0 9px, transparent 9px 17px); }
   .wf-hair--a { top: 15%; }
   .wf-hair--b { bottom: 21%; }
-  .wf-x { position: absolute; font: 400 16px var(--wf-hand); color: var(--wf-mid); opacity: 0.8; pointer-events: none; filter: url(#wf-rough); }
-  .wfa { position: absolute; font: 400 12.5px var(--wf-hand); letter-spacing: 0.02em; color: var(--wf-mid); white-space: nowrap; pointer-events: none; filter: url(#wf-rough); }
+  .wf-x { position: absolute; font: 400 16px var(--wf-hand); color: var(--wf-mid); opacity: 0.8; pointer-events: none; }
+  .wfa { position: absolute; font: 400 12.5px var(--wf-hand); letter-spacing: 0.02em; color: var(--wf-mid); white-space: nowrap; pointer-events: none; }
   .wfa--top { left: 0; right: 0; top: 4px; display: flex; align-items: center; gap: 14px; justify-content: center; }
   .wfa--top { font-size: 14px; color: var(--wf-ink); }
   .wfa--top i { flex: 1; height: 1.6px; background: repeating-linear-gradient(90deg, var(--wf-line) 0 10px, transparent 10px 19px); }
   .wfa--tag { left: 0; top: 15%; display: inline-flex; align-items: center; gap: 8px; z-index: 4; }
   .wfa--tag i { width: 28px; height: 1.6px; background: var(--wf-line); rotate: 2deg; }
-  .wfa-rail { position: absolute; display: flex; flex-direction: column; gap: 19px; z-index: 4; font: 400 11px var(--wf-hand); letter-spacing: 0.02em; color: var(--wf-mid); pointer-events: none; filter: url(#wf-rough); }
+  .wfa-rail { position: absolute; display: flex; flex-direction: column; gap: 19px; z-index: 4; font: 400 11px var(--wf-hand); letter-spacing: 0.02em; color: var(--wf-mid); pointer-events: none; }
   .wfa-rail span { position: relative; }
   .wfa-rail--l { left: 0; top: 33%; }
   .wfa-rail--l span { padding-right: 14px; text-align: right; }
@@ -503,7 +503,7 @@
   .wfp--l { --wfr: 28px; width: clamp(158px, 13.6vw, 194px); z-index: 2; margin-right: -3.5%; transform-origin: right center; transform: translateY(4px) rotateY(15deg) rotate(-0.8deg); }
   .wfp--r { --wfr: 28px; width: clamp(158px, 13.6vw, 194px); z-index: 2; margin-left: -3.5%; transform-origin: left center; transform: translateY(4px) rotateY(-15deg) rotate(0.8deg); }
 
-  .wfp__sketch { position: absolute; inset: 0; border: 2.4px solid var(--wf-ink); background: #fbfbf9; padding: 5px;
+  .wfp__sketch { position: absolute; inset: 0; border: 2.4px solid var(--wf-ink); background: #fbfbf9; padding: 5px; will-change: transform; isolation: isolate;
     border-radius: calc(var(--wfr) * 1.08) calc(var(--wfr) * 0.9) calc(var(--wfr) * 1.02) calc(var(--wfr) * 0.94) / calc(var(--wfr) * 0.92) calc(var(--wfr) * 1.06) calc(var(--wfr) * 0.9) calc(var(--wfr) * 1.04);
     box-shadow: 0 22px 40px rgba(15,23,42,0.10); filter: url(#wf-rough); }
   .wfs__island { position: absolute; top: 2.5%; left: 50%; width: 28%; height: 2.5%; transform: translateX(-50%) rotate(-0.8deg); z-index: 4;
@@ -606,6 +606,11 @@
   .wfs__tab span { letter-spacing: 0.03em; font-size: 0.46em; }
   .wfs svg { stroke-width: 2.2; }
   .wfs__sig i { rotate: 2deg; }
+
+  /* baked sketch image (default) — the live filtered DOM sits behind LIVE_SKETCH */
+  .wfp__sketch--img { inset: -6px; width: calc(100% + 12px); height: calc(100% + 12px);
+    border: 0; padding: 0; background: none; box-shadow: none; filter: none; border-radius: 0; }
+  .wfp::before { content: ""; position: absolute; inset: 3% 2%; border-radius: var(--wfr); box-shadow: 0 22px 40px rgba(15,23,42,0.10); }
 
   /* colored layer — revealed on hover / tap */
   .wfp .phone { position: absolute; inset: 0; border-radius: var(--wfr); }
