@@ -1,0 +1,6 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AMONCA">
+  <rect width="48" height="48" rx="13" fill="#0a0a0c"></rect>
+  <path d="M13 35.5 L24 12.5 L35 35.5" stroke="#ffffff" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+  <path d="M18.6 27.4 H29.4" stroke="#ffffff" stroke-width="4.4" stroke-linecap="round" fill="none"></path>
+  <circle cx="24" cy="12.5" r="2.6" fill="#ffffff"></circle>
+</svg>
