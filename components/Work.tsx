@@ -18,14 +18,14 @@ export default function Work() {
 
       <div className="workx">
 
-        {/* flagship spotlight: GymAPI — full-bleed, no card */}
-        <div className="spotlight rv" id="gymapi">
+        {/* flagship spotlight: Pulso — full-bleed, no card */}
+        <div className="spotlight rv" id="pulso">
           <i className="wash wash--spot" aria-hidden="true"></i>
           <div className="spot__grid">
             <div className="spot__lede">
               <span className="spot__idx">01</span>
               <span className="spot__pill"><i></i>Flagship SaaS</span>
-              <h2 className="spot__title">GymAPI</h2>
+              <h2 className="spot__title">Pulso</h2>
               <p className="spot__sub">Fitness platform for modern gyms</p>
               <p className="spot__desc">Multi-tenant gym platform — memberships, access control, classes and Stripe billing, with a realtime admin and a native iOS app. Built for scale from day one.</p>
               <span className="spot__eyebrow">Built to power modern gyms</span>
@@ -72,7 +72,7 @@ export default function Work() {
             <div className="spot__logos">
               <span><b>Everlast</b> Gym</span>
               <span><b>Nüwa</b> Fit</span>
-              <span><b>Pulso</b> Studio</span>
+              <span><b>Vulcan</b> Studio</span>
               <span><b>Ironhub</b> Training</span>
               <span><b>Alma</b> Wellness</span>
               <span><b>Forza</b> Club</span>

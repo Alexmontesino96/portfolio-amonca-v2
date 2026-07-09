@@ -112,12 +112,12 @@ export default function Effects() {
         ["t-p", "$ "], ["t-c", 'amonca new --problem "gym ops in spreadsheets"'], ["nl", ""],
         ["t-d", "↳ schema designed · API typed · tenants isolated"], ["nl", ""],
         ["t-d", "↳ Stripe wired · dashboard shipped · deployed"], ["nl", ""],
-        ["t-ok", "✓ problem retired"], ["t-d", " — GymAPI live · p95 38ms"], ["nl", ""], ["nl", ""],
+        ["t-ok", "✓ problem retired"], ["t-d", " — Pulso live · p95 38ms"], ["nl", ""], ["nl", ""],
       ],
       [
         ["t-p", "$ "], ["t-c", "tail -f production.log"], ["nl", ""],
         ["t-d", "02:14:07 "], ["t-c", "POST /v1/scan "], ["t-ok", "201"], ["t-d", " 44ms · flip-iq"], ["nl", ""],
-        ["t-d", "02:14:09 "], ["t-c", "POST /v1/checkins "], ["t-ok", "201"], ["t-d", " 19ms · gymapi"], ["nl", ""],
+        ["t-d", "02:14:09 "], ["t-c", "POST /v1/checkins "], ["t-ok", "201"], ["t-d", " 19ms · pulso"], ["nl", ""],
         ["t-d", "02:14:12 "], ["t-c", "GET  /v1/budgets "], ["t-ok", "200"], ["t-d", " 12ms · fin-family"], ["nl", ""], ["nl", ""],
       ],
     ];

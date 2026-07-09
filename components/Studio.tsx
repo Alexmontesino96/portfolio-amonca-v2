@@ -12,7 +12,7 @@ export default function Studio() {
         <span className="eyebrow">The studio</span>
         <h2 className="sec__title">One roof, zero hand-offs.</h2>
         <p className="founder__para">AMONCA is the studio of <b>Alex Montesino</b> — a backend developer and API specialist who'd rather retire a problem than bill hours, taking products from first schema to production traffic. No agency layers: the person who designs your API is the one answering when it pages.</p>
-        <span className="founder__now"><i></i>Currently building Flip IQ · GymAPI · D&amp;D Imperium</span>
+        <span className="founder__now"><i></i>Currently building Flip IQ · Pulso · D&amp;D Imperium</span>
       </div>
     </div>
   </section>

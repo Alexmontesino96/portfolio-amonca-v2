@@ -448,7 +448,7 @@
     .wash--hood, .wash--studio { width: 44vw; }
   }
 
-  /* ── flagship spotlight: GymAPI (full-bleed, no card) ── */
+  /* ── flagship spotlight: Pulso (full-bleed, no card) ── */
   .spotlight { position: relative; z-index: 1; }
   .spot__grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
 
