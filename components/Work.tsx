@@ -58,12 +58,6 @@ export default function Work() {
                   <div className="frag__amt"><b>$49.00</b><span>✓ paid</span></div>
                 </div></div>
               </div>
-              <div className="spot__stats">
-                <div className="spot__stat"><b>6+</b><span>Gyms in production</span></div>
-                <div className="spot__stat"><b>12K+</b><span>Active members</span></div>
-                <div className="spot__stat"><b>99.9%</b><span>Uptime</span></div>
-                <div className="spot__stat"><b>4.9★</b><span>App Store rating</span></div>
-              </div>
             </div>
           </div>
 

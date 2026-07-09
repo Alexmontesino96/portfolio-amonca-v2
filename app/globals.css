@@ -526,10 +526,6 @@
   .phone3d__flat { position: absolute; left: 12%; top: 6%; width: 76%; border-radius: 26px; border: 4px solid #101114; box-shadow: 0 42px 70px rgba(15,23,42,0.32); }
 
 
-  .spot__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: clamp(18px, 2.5vw, 30px); }
-  .spot__stat { border: 1px solid var(--line); border-radius: 14px; background: var(--surface); padding: 16px 14px; text-align: center; }
-  .spot__stat b { display: block; font: 700 clamp(24px, 2.4vw, 33px) var(--disp); letter-spacing: -0.02em; color: var(--live-ink); }
-  .spot__stat span { display: block; margin-top: 5px; font: 500 9px var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
 
   .spot__trust { margin-top: clamp(46px, 7vw, 88px); border-top: 1px solid var(--line); padding-top: clamp(26px, 4vw, 42px); text-align: center; }
   .spot__trust-label { font: 500 11px var(--mono); letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); }
@@ -559,10 +555,6 @@
     .spot__tags span { font-size: 10.5px; }
     .spot__tags span + span::before { margin: 0 6px; }
     .duo { padding: 4px 0 6px; }
-    .spot__stats { grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 10px; }
-    .spot__stat { padding: 10px 3px; border-radius: 10px; }
-    .spot__stat b { font-size: 16.5px; }
-    .spot__stat span { font-size: 6.6px; letter-spacing: 0.04em; margin-top: 3px; }
     .spot__trust { margin-top: 28px; padding-top: 18px; }
     .spot__logos { margin-top: 12px; }
     .spot__logos b { font-size: 14px; }
