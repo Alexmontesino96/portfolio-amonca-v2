@@ -457,7 +457,7 @@
   .spot__title { font-family: var(--disp); font-weight: 700; font-size: clamp(60px, 8vw, 116px); line-height: 0.92; letter-spacing: -0.04em; color: var(--ink); margin: 18px 0 0; }
   .spot__sub { margin: 12px 0 0; font: 500 clamp(19px, 2vw, 26px) var(--disp); letter-spacing: -0.01em; color: var(--ink); }
   .spot__desc { margin: 18px 0 0; max-width: 46ch; font-size: 16px; line-height: 1.65; color: var(--ink-2); text-wrap: pretty; }
-  .spot__eyebrow { display: inline-flex; align-items: center; gap: 12px; margin: 26px 0 0; font: 500 11px var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--live-ink); }
+  .spot__eyebrow { display: inline-flex; align-items: center; gap: 12px; margin: 26px 0 0; font: 500 11px var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--live-ink); white-space: nowrap; }
   .spot__eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--live-ink); }
   .spot__feats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 0; max-width: 500px; }
   .spot__feat { display: inline-flex; align-items: center; gap: 11px; padding: 13px 15px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); font: 600 14px var(--body); color: var(--ink); transition: border-color 0.25s, transform 0.25s var(--ease), box-shadow 0.25s; }
@@ -484,7 +484,8 @@
   .wfa--top { left: 0; right: 0; top: 4px; display: flex; align-items: center; gap: 14px; justify-content: center; }
   .wfa--top { font-size: 14px; color: var(--wf-ink); }
   .wfa--top i { flex: 1; height: 1.6px; background: repeating-linear-gradient(90deg, var(--wf-line) 0 10px, transparent 10px 19px); }
-  .wfa--tag { left: 0; top: 15%; display: inline-flex; align-items: center; gap: 8px; z-index: 4; }
+  .wfa--tag { left: 0; top: 7%; display: inline-flex; align-items: center; gap: 8px; z-index: 4; }
+  @media (max-width: 1280px) { .wfa--tag { display: none; } }
   .wfa--tag i { width: 28px; height: 1.6px; background: var(--wf-line); rotate: 2deg; }
   .wfa-rail { position: absolute; display: flex; flex-direction: column; gap: 19px; z-index: 4; font: 400 11px var(--wf-hand); letter-spacing: 0.02em; color: var(--wf-mid); pointer-events: none; }
   .wfa-rail span { position: relative; }
