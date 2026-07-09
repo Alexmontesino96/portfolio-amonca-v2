@@ -781,15 +781,6 @@ export default function Effects() {
     };
   }, []);
 
-  // ── blueprint phones: tap toggles the color-in (hover handles fine pointers via CSS) ──
-  useEffect(() => {
-    const controller = new AbortController();
-    const { signal } = controller;
-    document.querySelectorAll<HTMLElement>(".wfp").forEach((p) => {
-      p.addEventListener("click", () => p.classList.toggle("on"), { signal });
-    });
-    return () => controller.abort();
-  }, []);
 
   return null;
 }
