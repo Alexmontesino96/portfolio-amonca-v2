@@ -782,5 +782,34 @@ export default function Effects() {
   }, []);
 
 
+  // ── orbital ring: yaw the phone trio a few degrees with the cursor ──
+  useEffect(() => {
+    const duo = document.querySelector(".duo") as HTMLElement | null;
+    if (!duo) return;
+    if (!matchMedia("(pointer: fine)").matches || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const controller = new AbortController();
+    let raf: number | null = null;
+    let t = 0, c = 0; // target / current yaw in [-1, 1]
+
+    const loop = () => {
+      raf = null;
+      c += (t - c) * 0.07;
+      duo.style.setProperty("--ring", (c * 6).toFixed(2) + "deg");
+      duo.style.setProperty("--rz", (c * 30).toFixed(1) + "px");
+      duo.style.setProperty("--rx", (c * 14).toFixed(1) + "px");
+      if (Math.abs(t - c) > 0.003) raf = requestAnimationFrame(loop);
+    };
+    addEventListener("pointermove", (e: PointerEvent) => {
+      t = document.body.getAttribute("data-motion") === "calm" ? 0 : (e.clientX / innerWidth) * 2 - 1;
+      if (raf === null) raf = requestAnimationFrame(loop);
+    }, { passive: true, signal: controller.signal });
+
+    return () => {
+      controller.abort();
+      if (raf !== null) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return null;
 }

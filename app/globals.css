@@ -480,9 +480,16 @@
   .phone__screen img { display: block; width: 100%; height: auto; }
   .phone__island { position: absolute; top: 3.2%; left: 50%; width: 30%; height: 2.9%; min-height: 11px; background: #08090b; border-radius: 999px; z-index: 4;
     transform: translateX(-50%); }
-  .duo__side { flex: none; width: clamp(146px, 15vw, 202px); z-index: 1; }
-  .duo__side--l { margin-right: -2.5%; transform-origin: right center; transform: translateY(28px) rotateY(26deg) rotate(-1.5deg); }
-  .duo__side--r { margin-left: -2.5%; transform-origin: left center; transform: translateY(22px) rotateY(-26deg) rotate(1.5deg); }
+  /* orbital ring: laterals recede on the arc (real Z depth), the ring yaws
+     a few degrees with the cursor via --ring/--rz set from Effects */
+  .duo { --ring: 0deg; --rz: 0px; }
+  .duo__side { flex: none; width: clamp(160px, 16.5vw, 220px); z-index: 1;
+    filter: blur(0.55px) brightness(0.985); will-change: transform;
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.55), inset 0 0 0 1px rgba(0,0,0,0.25), 0 30px 56px rgba(15,23,42,0.22); }
+  .duo__side--l { margin-right: -9%; transform-origin: right center;
+    transform: translate3d(var(--rx, 0px), 10px, calc(-118px + var(--rz))) rotateY(calc(34deg + var(--ring))) rotate(-1.2deg); }
+  .duo__side--r { margin-left: -9%; transform-origin: left center;
+    transform: translate3d(var(--rx, 0px), 4px, calc(-118px - var(--rz))) rotateY(calc(-34deg + var(--ring))) rotate(1.2deg); }
   .duo__side--l .phone__screen { aspect-ratio: 1206 / 2622; }
   .duo__side--l .ci { font-size: clamp(8.5px, 0.95vw, 12px); }
 
@@ -534,9 +541,9 @@
     .spot__feat { padding: 11px 12px; font-size: 12.5px; gap: 9px; }
     .spot__feat svg { width: 17px; height: 17px; }
     .spot__stats { grid-template-columns: 1fr 1fr; }
-    .duo__side { width: clamp(90px, 24vw, 118px); }
-    .duo__side--l { margin-right: -5%; }
-    .duo__side--r { margin-left: -5%; }
+    .duo__side { width: clamp(104px, 28vw, 136px); }
+    .duo__side--l { margin-right: -12%; transform: translate3d(0, 8px, -84px) rotateY(34deg) rotate(-1.2deg); }
+    .duo__side--r { margin-left: -12%; transform: translate3d(0, 3px, -84px) rotateY(-34deg) rotate(1.2deg); }
     .duo__side--l .ci { font-size: clamp(5.6px, 1.5vw, 7px); }
     .phone3d { width: clamp(165px, 45vw, 198px); }
     .spot__logos { gap: 18px 26px; }
