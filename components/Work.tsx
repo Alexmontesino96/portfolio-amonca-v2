@@ -39,6 +39,16 @@ export default function Work() {
 
             <div className="spot__stage" aria-hidden="true">
               <div className="wfstage">
+                <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
+                  <filter id="wf-rough" x="-4%" y="-4%" width="108%" height="108%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.016 0.022" numOctaves="2" seed="7" result="n" />
+                    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G" />
+                  </filter>
+                  <filter id="wf-rough-lg" x="-6%" y="-6%" width="112%" height="112%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.008 0.011" numOctaves="2" seed="3" result="n" />
+                    <feDisplacementMap in="SourceGraphic" in2="n" scale="4.5" xChannelSelector="R" yChannelSelector="G" />
+                  </filter>
+                </svg>
                 <i className="wf-circle"></i>
                 <i className="wf-hair wf-hair--a"></i>
                 <i className="wf-hair wf-hair--b"></i>
@@ -134,11 +144,10 @@ export default function Work() {
                           </div>
                         </div>
                         <div className="wfs__class">
-                          <div className="wfs__time"><b>4:00</b><span>PM</span><span>+60m</span></div>
+                          <div className="wfs__time"><b>4:00</b><span>PM</span></div>
                           <div className="wfs__ccard">
                             <span className="wfs__eyebrow">Clase · Intermedio</span>
                             <div className="wfs__h2">Striking</div>
-                            <div className="wfs__coach"><i></i>Jose Paul Rodriguez</div>
                           </div>
                         </div>
                         <div className="wfs__tab">
