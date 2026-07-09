@@ -782,7 +782,7 @@ export default function Effects() {
   }, []);
 
 
-  // ── orbital ring: yaw the phone trio a few degrees with the cursor ──
+  // ── stage parallax: drift the floating UI fragments with the cursor ──
   useEffect(() => {
     const duo = document.querySelector(".duo") as HTMLElement | null;
     if (!duo) return;
@@ -790,18 +790,20 @@ export default function Effects() {
 
     const controller = new AbortController();
     let raf: number | null = null;
-    let t = 0, c = 0; // target / current yaw in [-1, 1]
+    let tx = 0, ty = 0, cx = 0, cy = 0;
 
     const loop = () => {
       raf = null;
-      c += (t - c) * 0.07;
-      duo.style.setProperty("--ring", (c * 6).toFixed(2) + "deg");
-      duo.style.setProperty("--rz", (c * 30).toFixed(1) + "px");
-      duo.style.setProperty("--rx", (c * 14).toFixed(1) + "px");
-      if (Math.abs(t - c) > 0.003) raf = requestAnimationFrame(loop);
+      cx += (tx - cx) * 0.07;
+      cy += (ty - cy) * 0.07;
+      duo.style.setProperty("--rx", (cx * 9).toFixed(1) + "px");
+      duo.style.setProperty("--ry", (cy * 7).toFixed(1) + "px");
+      if (Math.abs(tx - cx) > 0.003 || Math.abs(ty - cy) > 0.003) raf = requestAnimationFrame(loop);
     };
     addEventListener("pointermove", (e: PointerEvent) => {
-      t = document.body.getAttribute("data-motion") === "calm" ? 0 : (e.clientX / innerWidth) * 2 - 1;
+      const calm = document.body.getAttribute("data-motion") === "calm";
+      tx = calm ? 0 : (e.clientX / innerWidth) * 2 - 1;
+      ty = calm ? 0 : (e.clientY / innerHeight) * 2 - 1;
       if (raf === null) raf = requestAnimationFrame(loop);
     }, { passive: true, signal: controller.signal });
 
