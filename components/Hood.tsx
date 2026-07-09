@@ -4,6 +4,7 @@ import type { CSSProperties } from "react";
 export default function Hood() {
   return (
   <section className="sec" id="hood" data-screen-label="Engineering">
+    <i className="wash wash--hood" aria-hidden="true"></i>
     <div className="wrap hood">
       <div className="hood__sticky rv">
         <span className="eyebrow">Under the hood</span>

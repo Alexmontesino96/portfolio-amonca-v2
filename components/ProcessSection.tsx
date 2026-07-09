@@ -3,6 +3,7 @@
 export default function ProcessSection() {
   return (
   <section className="sec" id="process" data-screen-label="Process">
+    <i className="wash wash--process" aria-hidden="true"></i>
     <div className="wrap">
       <div className="sec__head rv">
         <div>

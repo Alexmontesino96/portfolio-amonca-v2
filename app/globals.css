@@ -434,6 +434,19 @@
   .feat__proof span { font: 500 9.5px var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
   @media (max-width: 640px) { .feat__proof { grid-template-columns: 1fr; gap: 8px; } }
 
+  /* ── watercolor washes — minimal, baked PNGs (zero runtime cost) ── */
+  .wash { position: absolute; z-index: -1; aspect-ratio: 1; background: center / contain no-repeat; pointer-events: none; }
+  .wash--spot { top: -46px; right: -70px; width: clamp(280px, 30vw, 440px); opacity: 0.46; rotate: 14deg; background-image: url("/assets/wash/wash-lime.png"); }
+  .wash--work { top: -60px; right: 4%; width: clamp(180px, 18vw, 260px); opacity: 0.32; rotate: -24deg; background-image: url("/assets/wash/wash-cyan.png"); }
+  .wash--hood { top: 240px; left: -130px; width: clamp(260px, 28vw, 420px); opacity: 0.42; rotate: 32deg; background-image: url("/assets/wash/wash-indigo.png"); }
+  .wash--studio { bottom: -70px; left: -110px; width: clamp(260px, 28vw, 430px); opacity: 0.4; rotate: -8deg; background-image: url("/assets/wash/wash-green.png"); }
+  .wash--process { top: -40px; right: -60px; width: clamp(180px, 20vw, 300px); opacity: 0.34; rotate: -14deg; background-image: url("/assets/wash/wash-amber.png"); }
+  @media (max-width: 640px) {
+    .wash { opacity: 0.26; }
+    .wash--spot { width: 46vw; top: -20px; right: -40px; }
+    .wash--hood, .wash--studio { width: 44vw; }
+  }
+
   /* ── flagship spotlight: GymAPI (full-bleed, no card) ── */
   .spotlight { position: relative; z-index: 1; }
   .spot__grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }

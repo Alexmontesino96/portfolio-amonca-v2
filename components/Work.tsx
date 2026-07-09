@@ -10,6 +10,7 @@ const LIVE_SKETCH = false;
 export default function Work() {
   return (
   <section className="sec" id="work" data-screen-label="Work">
+    <i className="wash wash--work" aria-hidden="true"></i>
     <div className="wrap">
       <div className="sec__head rv">
         <div>
@@ -23,6 +24,7 @@ export default function Work() {
 
         {/* flagship spotlight: GymAPI — full-bleed, no card */}
         <div className="spotlight rv" id="gymapi">
+          <i className="wash wash--spot" aria-hidden="true"></i>
           <div className="spot__grid">
             <div className="spot__lede">
               <span className="spot__idx">01</span>

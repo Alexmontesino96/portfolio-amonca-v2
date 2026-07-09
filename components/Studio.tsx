@@ -2,6 +2,7 @@
 export default function Studio() {
   return (
   <section className="sec" id="studio" data-screen-label="Studio">
+    <i className="wash wash--studio" aria-hidden="true"></i>
     <div className="wrap founder">
       <div className="founder__photo rv">
         <img src="/assets/team/founder-ceo.png" alt="Alex Montesino, founder of AMONCA" />
