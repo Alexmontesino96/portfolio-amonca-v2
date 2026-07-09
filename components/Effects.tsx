@@ -781,44 +781,14 @@ export default function Effects() {
     };
   }, []);
 
-  // ── spotlight: subtle cursor parallax on the phone trio ──
+  // ── blueprint phones: tap toggles the color-in (hover handles fine pointers via CSS) ──
   useEffect(() => {
-    const spot = document.querySelector(".spotlight") as HTMLElement | null;
-    const phones = spot?.querySelector(".phones") as HTMLElement | null;
-    if (!spot || !phones) return;
-    if (!matchMedia("(pointer: fine)").matches || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
     const controller = new AbortController();
     const { signal } = controller;
-    let raf: number | null = null;
-    let tx = 0, ty = 0, cx = 0, cy = 0; // targets and current (lerped)
-
-    function onMove(e: MouseEvent) {
-      if (document.body.getAttribute("data-motion") === "calm") { tx = 0; ty = 0; return; }
-      const r = spot!.getBoundingClientRect();
-      tx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width / 2)));
-      ty = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (r.height / 2)));
-      if (raf === null) raf = requestAnimationFrame(loop);
-    }
-    function loop() {
-      cx += (tx - cx) * 0.08;
-      cy += (ty - cy) * 0.08;
-      phones!.style.setProperty("--spx", cx.toFixed(3));
-      phones!.style.setProperty("--spy", cy.toFixed(3));
-      if (Math.abs(cx - tx) < 0.002 && Math.abs(cy - ty) < 0.002) { raf = null; return; }
-      raf = requestAnimationFrame(loop);
-    }
-    function onLeave() {
-      tx = 0; ty = 0;
-      if (raf === null) raf = requestAnimationFrame(loop);
-    }
-    spot.addEventListener("mousemove", onMove, { passive: true, signal });
-    spot.addEventListener("mouseleave", onLeave, { signal });
-
-    return () => {
-      controller.abort();
-      if (raf !== null) cancelAnimationFrame(raf);
-    };
+    document.querySelectorAll<HTMLElement>(".wfp").forEach((p) => {
+      p.addEventListener("click", () => p.classList.toggle("on"), { signal });
+    });
+    return () => controller.abort();
   }, []);
 
   return null;

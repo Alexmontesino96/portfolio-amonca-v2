@@ -38,27 +38,161 @@ export default function Work() {
             </div>
 
             <div className="spot__stage" aria-hidden="true">
-              <div className="phones">
-                <div className="phone phone--l fl fl-b">
-                  <div className="phone__screen ci">
-                    <div className="ci__bar"><span>11:13</span><span className="ci__ind"><i></i><i></i><i></i></span></div>
-                    <div className="ci__head">Check-in</div>
-                    <div className="ci__ava">CJ</div>
-                    <div className="ci__name">Carlos Joan</div>
-                    <div className="ci__since">Member since Jan 2024</div>
-                    <div className="ci__qr"><img src="/assets/products/apps/gym-checkin-qr.svg" alt="" /></div>
-                    <div className="ci__hint">Show this code at the gym to check-in.</div>
-                    <div className="ci__btn">Check-in valid <span>✓</span></div>
+              <div className="wfstage">
+                <i className="wf-circle"></i>
+                <i className="wf-hair wf-hair--a"></i>
+                <i className="wf-hair wf-hair--b"></i>
+                <b className="wf-x" style={{ left: "6%", top: "9%" }}>+</b>
+                <b className="wf-x" style={{ right: "5%", top: "15%" }}>+</b>
+                <b className="wf-x" style={{ left: "4%", bottom: "24%" }}>+</b>
+                <b className="wf-x" style={{ right: "6%", bottom: "30%" }}>+</b>
+                <span className="wfa wfa--top"><i></i>iOS App Design Exploration<i></i></span>
+                <span className="wfa wfa--tag">Check-in screen<i></i></span>
+                <div className="wfa-rail wfa-rail--l"><span>44px</span><span>8px grid</span><span>Align center</span><span>375px</span></div>
+                <div className="wfa-rail wfa-rail--r"><span>Safe area</span><span>Card radius · 12px</span><span>Grid · 8pt</span><span>Type · SF Pro</span></div>
+                <span className="wfa wfa--dim"><i></i>390px<i></i></span>
+                <span className="wfa wfa--foot" style={{ left: "3%" }}>Perspective · 15°</span>
+                <span className="wfa wfa--foot wfa--foot-c">Primary focus · Center screen</span>
+                <span className="wfa wfa--foot" style={{ right: "3%" }}>Balanced · Visual hierarchy</span>
+
+                <div className="phones">
+                  {/* left — check-in (sketch → colored recreation) */}
+                  <div className="wfp wfp--l">
+                    <div className="wfp__sketch">
+                      <i className="wfs__island"></i>
+                      <div className="wfs wfs--ci">
+                        <div className="wfs__bar"><span>11:13</span><span className="wfs__sig"><i></i><i></i><i></i></span></div>
+                        <div className="wfs__center wfs__h1">Check-in</div>
+                        <div className="wfs__face">
+                          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><circle cx="24" cy="17" r="7.5" /><path d="M8 41c2.6-8.5 8.6-12.5 16-12.5S37.4 32.5 40 41" /></svg>
+                        </div>
+                        <div className="wfs__center wfs__h2">Carlos Joan</div>
+                        <div className="wfs__center wfs__mut">Member since Jan 2024</div>
+                        <div className="wfs__qr"><img src="/assets/products/apps/gym-checkin-qr.svg" alt="" /></div>
+                        <div className="wfs__center wfs__mut wfs__hint">Show this code at the gym to check-in.</div>
+                        <div className="wfs__pillbtn">Check-in valid <i>✓</i></div>
+                      </div>
+                    </div>
+                    <div className="wfp__color phone">
+                      <div className="phone__screen ci">
+                        <div className="ci__bar"><span>11:13</span><span className="ci__ind"><i></i><i></i><i></i></span></div>
+                        <div className="ci__head">Check-in</div>
+                        <div className="ci__ava">CJ</div>
+                        <div className="ci__name">Carlos Joan</div>
+                        <div className="ci__since">Member since Jan 2024</div>
+                        <div className="ci__qr"><img src="/assets/products/apps/gym-checkin-qr.svg" alt="" /></div>
+                        <div className="ci__hint">Show this code at the gym to check-in.</div>
+                        <div className="ci__btn">Check-in valid <span>✓</span></div>
+                      </div>
+                      <span className="phone__island"></span>
+                    </div>
                   </div>
-                  <span className="phone__island"></span>
-                </div>
-                <div className="phone phone--c fl fl-a">
-                  <div className="phone__screen"><img src="/assets/products/apps/gym-clases.png" alt="GymAPI classes screen" /></div>
-                  <span className="phone__island"></span>
-                </div>
-                <div className="phone phone--r fl fl-c">
-                  <div className="phone__screen"><img src="/assets/products/apps/gym-home.png" alt="GymAPI member home screen" /></div>
-                  <span className="phone__island"></span>
+
+                  {/* center — classes (sketch → real screenshot) */}
+                  <div className="wfp wfp--c">
+                    <div className="wfp__sketch">
+                      <i className="wfs__island"></i>
+                      <div className="wfs wfs--cl">
+                        <div className="wfs__bar"><span>11:13</span><span className="wfs__sig"><i></i><i></i><i></i></span></div>
+                        <div className="wfs__clhead">
+                          <div><span className="wfs__eyebrow">Today · Jul 02</span><div className="wfs__h1">Classes</div></div>
+                          <span className="wfs__round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"><path d="M5 7h14M8 12h8M10.5 17h3" /></svg></span>
+                          <span className="wfs__round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"><path d="M4 8V5.5A1.5 1.5 0 015.5 4H8M16 4h2.5A1.5 1.5 0 0120 5.5V8M20 16v2.5a1.5 1.5 0 01-1.5 1.5H16M8 20H5.5A1.5 1.5 0 014 18.5V16" /></svg></span>
+                        </div>
+                        <div className="wfs__days">
+                          <span><i>Mon</i><b>29</b></span>
+                          <span><i>Tue</i><b>30</b></span>
+                          <span><i>Wed</i><b>01</b></span>
+                          <span className="on"><i>Thu</i><b>02</b></span>
+                          <span><i>Fri</i><b>03</b></span>
+                        </div>
+                        <div className="wfs__class">
+                          <div className="wfs__time"><b>8:00</b><span>AM</span><span>+60m</span></div>
+                          <div className="wfs__ccard">
+                            <span className="wfs__eyebrow">Clase · Intermedio</span>
+                            <div className="wfs__h2">Muay Thai</div>
+                            <div className="wfs__coach"><i></i>Jose Paul Rodriguez</div>
+                            <div className="wfs__prog"><i></i><span>8/30</span><b>+</b></div>
+                          </div>
+                        </div>
+                        <div className="wfs__class">
+                          <div className="wfs__time"><b>10:00</b><span>AM</span><span>+60m</span></div>
+                          <div className="wfs__ccard">
+                            <span className="wfs__eyebrow">Cardio · Principiante</span>
+                            <div className="wfs__h2">Cardio Hit</div>
+                            <div className="wfs__coach"><i></i>Jose Paul Rodriguez</div>
+                            <div className="wfs__prog"><i></i><span>8/20</span><b>+</b></div>
+                          </div>
+                        </div>
+                        <div className="wfs__class">
+                          <div className="wfs__time"><b>2:00</b><span>PM</span><span>+60m</span></div>
+                          <div className="wfs__ccard">
+                            <span className="wfs__eyebrow">Clase · Intermedio <em>✓</em></span>
+                            <div className="wfs__h2">Striking</div>
+                            <div className="wfs__coach"><i></i>Jose Paul Rodriguez</div>
+                            <div className="wfs__prog"><i></i><span>12/25</span><b>+</b></div>
+                          </div>
+                        </div>
+                        <div className="wfs__class">
+                          <div className="wfs__time"><b>4:00</b><span>PM</span><span>+60m</span></div>
+                          <div className="wfs__ccard">
+                            <span className="wfs__eyebrow">Clase · Intermedio</span>
+                            <div className="wfs__h2">Striking</div>
+                            <div className="wfs__coach"><i></i>Jose Paul Rodriguez</div>
+                          </div>
+                        </div>
+                        <div className="wfs__tab">
+                          <span className="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M4 11l8-7 8 7v9a1 1 0 01-1 1h-4v-6h-6v6H5a1 1 0 01-1-1v-9z" /></svg>Home</span>
+                          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"><path d="M7 8v8M17 8v8M4 10v4M20 10v4M7 12h10" /></svg>Clases</span>
+                          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"><path d="M4 8V5.5A1.5 1.5 0 015.5 4H8M16 4h2.5A1.5 1.5 0 0120 5.5V8M20 16v2.5a1.5 1.5 0 01-1.5 1.5H16M8 20H5.5A1.5 1.5 0 014 18.5V16M9 9h2v2H9zM13 13h2v2h-2z" /></svg>Check-in</span>
+                          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"><circle cx="9" cy="9" r="3" /><path d="M4 19a5 5 0 0110 0M15.5 7a3 3 0 010 5.6M20 19a5 5 0 00-3.5-4.8" /></svg>Comunidad</span>
+                          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"><circle cx="12" cy="8.5" r="3.5" /><path d="M5 20c1.6-4 4.3-6 7-6s5.4 2 7 6" /></svg>Perfil</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="wfp__color phone">
+                      <div className="phone__screen"><img src="/assets/products/apps/gym-clases.png" alt="" /></div>
+                      <span className="phone__island"></span>
+                    </div>
+                  </div>
+
+                  {/* right — member home (sketch → real screenshot) */}
+                  <div className="wfp wfp--r">
+                    <div className="wfp__sketch">
+                      <i className="wfs__island"></i>
+                      <div className="wfs wfs--hm">
+                        <div className="wfs__bar"><span>11:13</span><span className="wfs__sig"><i></i><i></i><i></i></span></div>
+                        <div className="wfs__hmhead">
+                          <div><span className="wfs__mut">Buenas noches,</span><div className="wfs__h1">Alex</div></div>
+                          <span className="wfs__round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9.5a6 6 0 0112 0c0 4 1.5 5.5 1.5 5.5h-15S6 13.5 6 9.5" /><path d="M10.5 19a1.7 1.7 0 003 0" /></svg></span>
+                          <span className="wfs__round wfs__round--a">A</span>
+                        </div>
+                        <div className="wfs__face wfs__face--sm">
+                          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><circle cx="24" cy="17" r="7.5" /><path d="M8 41c2.6-8.5 8.6-12.5 16-12.5S37.4 32.5 40 41" /></svg>
+                        </div>
+                        <div className="wfs__scard">
+                          <div className="wfs__srow"><span className="wfs__eyebrow">Tu sesión de hoy</span><span className="wfs__minpill">60 min</span></div>
+                          <div className="wfs__h2">Cardio Hit</div>
+                          <div className="wfs__mut">◷ 11:30 PM–12:30 AM</div>
+                          <div className="wfs__srow wfs__srow--foot"><span className="wfs__coach"><i></i>Carlos Joan · Instructor</span><span className="wfs__minpill wfs__minpill--b">Check-in</span></div>
+                        </div>
+                        <div className="wfs__scard">
+                          <div className="wfs__srow"><span className="wfs__eyebrow">Tu progreso</span><span className="wfs__mut">Esta semana</span></div>
+                          <div className="wfs__big">35</div>
+                          <div className="wfs__mut">Clases completadas</div>
+                          <div className="wfs__mut wfs__up">+12% vs semana pasada</div>
+                          <div className="wfs__bars">
+                            <span style={{ height: "38%" }}></span><span style={{ height: "56%" }}></span><span style={{ height: "30%" }}></span><span style={{ height: "72%" }}></span><span style={{ height: "48%" }}></span><span style={{ height: "88%" }}></span><span style={{ height: "62%" }}></span>
+                          </div>
+                          <div className="wfs__days2"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="wfp__color phone">
+                      <div className="phone__screen"><img src="/assets/products/apps/gym-home.png" alt="" /></div>
+                      <span className="phone__island"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="spot__stats">
