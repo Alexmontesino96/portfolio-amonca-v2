@@ -158,6 +158,7 @@ export default function Phone3D() {
       let lastPointer = 0;
       let raf: number | null = null;
       let visible = true;
+      let kick = 0; // tap impulse on touch devices (no cursor there)
 
       function renderOnce() {
         if (!disposed) renderer.render(scene, camera);
@@ -182,6 +183,16 @@ export default function Phone3D() {
           targetRY = Math.sin(t * 0.00045) * 0.17;
           targetRX = BASE_RX + Math.sin(t * 0.0003 + 1.3) * 0.05;
         }
+        if (!calm()) {
+          // device tilt (the site's gyro writes --gx/--gy after "Enable tilt")
+          const rs = document.documentElement.style;
+          const gx = parseFloat(rs.getPropertyValue("--gx")) || 0;
+          const gy = parseFloat(rs.getPropertyValue("--gy")) || 0;
+          if (gx || gy) { targetRY += (gx / 15) * 0.3; targetRX += (gy / 11) * 0.12; }
+          // tap impulse decays into a springy settle
+          kick *= 0.93;
+          targetRY += kick;
+        }
         rx += (targetRX - rx) * 0.07;
         ry += (targetRY - ry) * 0.07;
         phone.rotation.x = rx;
@@ -198,8 +209,17 @@ export default function Phone3D() {
       }, { threshold: 0.05 });
       io.observe(host);
 
+      const onTap = (e: PointerEvent) => {
+        const r = host.getBoundingClientRect();
+        kick += (e.clientX < r.left + r.width / 2 ? -1 : 1) * 0.55;
+        kick = Math.max(-1.1, Math.min(1.1, kick));
+        lastPointer = performance.now() - 3000; // let idle resume right after the settle
+        wake();
+      };
+
       if (!reduced) {
         if (finePointer) addEventListener("pointermove", onPointer, { passive: true });
+        else host.addEventListener("pointerdown", onTap, { passive: true });
         wake();
       } else {
         renderOnce();
@@ -208,6 +228,7 @@ export default function Phone3D() {
       teardown = () => {
         if (raf !== null) cancelAnimationFrame(raf);
         removeEventListener("pointermove", onPointer);
+        host.removeEventListener("pointerdown", onTap);
         ro.disconnect();
         io.disconnect();
         disposables.forEach((d) => d.dispose());
