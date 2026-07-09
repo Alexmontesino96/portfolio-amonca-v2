@@ -43,11 +43,24 @@ export default function Work() {
 
             <div className="spot__stage" aria-hidden="true">
               <div className="duo">
-                <div className="phone duo__side">
-                  <div className="phone__screen"><img src="/assets/products/apps/gym-home.png" alt="" /></div>
+                <div className="phone duo__side duo__side--l">
+                  <div className="phone__screen ci">
+                    <div className="ci__bar"><span>11:13</span><span className="ci__ind"><i></i><i></i><i></i></span></div>
+                    <div className="ci__head">Check-in</div>
+                    <div className="ci__ava">CJ</div>
+                    <div className="ci__name">Carlos Joan</div>
+                    <div className="ci__since">Member since Jan 2024</div>
+                    <div className="ci__qr"><img src="/assets/products/apps/gym-checkin-qr.svg" alt="" /></div>
+                    <div className="ci__hint">Show this code at the gym to check-in.</div>
+                    <div className="ci__btn">Check-in valid <span>✓</span></div>
+                  </div>
                   <span className="phone__island"></span>
                 </div>
                 <Phone3D />
+                <div className="phone duo__side duo__side--r">
+                  <div className="phone__screen"><img src="/assets/products/apps/gym-home.png" alt="" /></div>
+                  <span className="phone__island"></span>
+                </div>
               </div>
               <div className="spot__stats">
                 <div className="spot__stat"><b>6+</b><span>Gyms in production</span></div>

@@ -480,9 +480,29 @@
   .phone__screen img { display: block; width: 100%; height: auto; }
   .phone__island { position: absolute; top: 3.2%; left: 50%; width: 30%; height: 2.9%; min-height: 11px; background: #08090b; border-radius: 999px; z-index: 4;
     transform: translateX(-50%); }
-  .duo__side { flex: none; width: clamp(150px, 15.5vw, 212px); z-index: 1; margin-right: -2.5%;
-    transform-origin: right center; transform: translateY(30px) rotateY(34deg) rotate(-2deg); }
-  .phone3d { position: relative; z-index: 2; flex: none; width: clamp(232px, 24vw, 306px); aspect-ratio: 0.5; }
+  .duo__side { flex: none; width: clamp(146px, 15vw, 202px); z-index: 1; }
+  .duo__side--l { margin-right: -2.5%; transform-origin: right center; transform: translateY(28px) rotateY(26deg) rotate(-1.5deg); }
+  .duo__side--r { margin-left: -2.5%; transform-origin: left center; transform: translateY(22px) rotateY(-26deg) rotate(1.5deg); }
+  .duo__side--l .phone__screen { aspect-ratio: 1206 / 2622; }
+  .duo__side--l .ci { font-size: clamp(8.5px, 0.95vw, 12px); }
+
+  .ci { width: 100%; height: 100%; font-size: clamp(9.5px, 1.08vw, 14px); background: radial-gradient(120% 78% at 50% 0%, #17191e, #0a0a0c 62%); color: #fff; display: flex; flex-direction: column; align-items: center; padding: 1.4em 1.25em 1em; text-align: center; }
+  .ci__bar { width: 100%; display: flex; justify-content: space-between; align-items: center; font: 600 0.56em var(--mono); color: #cfd2d6; margin-bottom: 1em; }
+  .ci__ind { display: inline-flex; align-items: flex-end; gap: 0.22em; }
+  .ci__ind i { width: 0.25em; background: #cfd2d6; border-radius: 0.1em; }
+  .ci__ind i:nth-child(1) { height: 0.38em; } .ci__ind i:nth-child(2) { height: 0.53em; } .ci__ind i:nth-child(3) { height: 0.69em; }
+  .ci__head { font: 600 1.05em var(--disp); letter-spacing: -0.02em; }
+  .ci__ava { width: 3.9em; aspect-ratio: 1; border-radius: 50%; margin: 1.1em 0 0.6em; display: grid; place-items: center; font: 700 1.35em var(--disp); color: #14210a; background: linear-gradient(135deg, #d8ff5c, #a6dd35); box-shadow: 0 0 0 0.38em rgba(201,240,66,0.16); }
+  .ci__name { font: 700 0.95em var(--disp); letter-spacing: -0.01em; }
+  .ci__since { font: 400 0.58em var(--body); color: #868c96; margin-top: 0.24em; }
+  .ci__qr { width: 8.4em; aspect-ratio: 1; background: #fff; border-radius: 0.95em; padding: 0.85em; margin: 1em 0 0.9em; box-shadow: 0 0.6em 1.9em rgba(0,0,0,0.4); }
+  .ci__qr img { width: 100%; height: 100%; display: block; }
+  .ci__hint { font: 400 0.56em var(--body); line-height: 1.45; color: #868c96; max-width: 82%; }
+  .ci__btn { margin-top: auto; width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.47em; padding: 0.85em 0; border-radius: 999px;
+    background: linear-gradient(135deg, #d8ff5c, #b6ef2f); color: #14210a; font: 700 0.8em var(--disp); letter-spacing: -0.01em; }
+  .ci__btn span { display: grid; place-items: center; width: 0.95em; height: 0.95em; border-radius: 50%; background: rgba(20,33,10,0.2); font-size: 0.56em; }
+
+  .phone3d { position: relative; z-index: 2; flex: none; width: clamp(222px, 23vw, 292px); aspect-ratio: 0.5; }
   .phone3d canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
   .phone3d::after { content: ""; position: absolute; left: 17%; right: 17%; bottom: 5%; height: 4%; z-index: -1; border-radius: 50%;
     background: radial-gradient(50% 50% at 50% 50%, rgba(15,23,42,0.30), transparent 72%); filter: blur(5px); }
@@ -514,8 +534,11 @@
     .spot__feat { padding: 11px 12px; font-size: 12.5px; gap: 9px; }
     .spot__feat svg { width: 17px; height: 17px; }
     .spot__stats { grid-template-columns: 1fr 1fr; }
-    .duo__side { width: clamp(124px, 33vw, 168px); margin-right: -9%; }
-    .phone3d { width: clamp(206px, 55vw, 258px); }
+    .duo__side { width: clamp(90px, 24vw, 118px); }
+    .duo__side--l { margin-right: -5%; }
+    .duo__side--r { margin-left: -5%; }
+    .duo__side--l .ci { font-size: clamp(5.6px, 1.5vw, 7px); }
+    .phone3d { width: clamp(165px, 45vw, 198px); }
     .spot__logos { gap: 18px 26px; }
   }
 
