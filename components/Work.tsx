@@ -76,12 +76,16 @@ export default function Work() {
 
         <div className="wgrid">
           <a className="card rv" href="https://www.getflipiq.com" target="_blank" rel="noopener">
+            <span className="card__idx" aria-hidden="true">02</span>
             <div className="card__stage" aria-hidden="true">
+              <i className="wash wash--row wash--wflip" aria-hidden="true"></i>
               <div className="comp comp--flip">
-                <div className="fbar"><i></i><span>0 09283 60959 7</span></div>
-                <div className="fshot fl fl-a"><img src="/assets/products/apps/flip-verdict.png" alt="" /></div>
-                <div className="fcatch fl fl-c"><span><i>eBay · </i>+$28.64</span><em>143% ROI</em></div>
-                <span className="scap">Scan → verdict</span>
+                <div className="fbar"><i></i><span>0 27242 92047 7</span></div>
+                <div className="fshot fshot--home fl fl-b"><img src="/assets/products/apps/flipiq-home.png" alt="" /></div>
+                <div className="fshot fshot--scan fl fl-c"><img src="/assets/products/apps/flipiq-scan.png" alt="" /></div>
+                <div className="fshot fshot--buy fl fl-a"><img src="/assets/products/apps/flipiq-buy.png" alt="" /></div>
+                <div className="fpanel fl fl-b"><img src="/assets/products/apps/flipiq-channels.png" alt="" /></div>
+                <span className="scap">Scan → analyze → verdict</span>
               </div>
             </div>
             <div className="card__info">
@@ -89,13 +93,16 @@ export default function Work() {
               <p className="card__desc">Live consumer product: scan a barcode → buy / watch / pass, with AI spelling out the why. Designed, built and shipped end to end.</p>
               <div className="card__meta">
                 <div className="card__tags"><span>Next.js</span><span>FastAPI</span><span>AI</span></div>
+                <span className="card__url">getflipiq.com</span>
                 <span className="card__arrow"><ArrowIcon /></span>
               </div>
             </div>
           </a>
 
           <div className="card rv">
+            <span className="card__idx" aria-hidden="true">03</span>
             <div className="card__stage" aria-hidden="true">
+              <i className="wash wash--row wash--wfam" aria-hidden="true"></i>
               <div className="comp comp--fam">
                 <div className="tghead">
                   <span className="tgback">‹</span>
@@ -132,16 +139,27 @@ export default function Work() {
           </div>
 
           <div className="card rv">
+            <span className="card__idx" aria-hidden="true">04</span>
             <div className="card__stage" aria-hidden="true">
+              <i className="wash wash--row wash--wback" aria-hidden="true"></i>
               <div className="comp comp--back">
-                <div className="bkled fl fl-a">
-                  <div className="bkled__head"><b>B00X4 · CeraVe 19oz</b><span>BOH 18u</span></div>
-                  <div className="bkr bkr--in"><i>IN</i><span>+24 · receiving</span><em>09:12</em></div>
-                  <div className="bkr bkr--out"><i>OUT</i><span>−6 · sales floor</span><em>11:40</em></div>
-                  <div className="bkr bkr--anom"><i>OUT</i><span>−12 · no sale matched</span><em>14:03</em></div>
-                  <div className="bkr bkr--chk"><i>CHK</i><span>18u · count ok</span><em>17:25</em></div>
+                <div className="blabel fl fl-b">
+                  <span className="blabel__bay">B-07</span>
+                  <span className="blabel__sku">B00X4 · CeraVe 19oz</span>
+                  <i className="blabel__bars" aria-hidden="true"></i>
+                  <span className="blabel__route">Receiving → Backroom</span>
                 </div>
-                <span className="scap">UPC-level traceability</span>
+                <div className="btrack fl fl-a">
+                  <div className="btrack__head"><b>B00X4 · CeraVe 19oz</b><span>BOH 18u</span></div>
+                  <div className="btrack__lane">
+                    <div className="bstop bstop--in"><i></i><b>Dock</b><span>+24 · 09:12</span></div>
+                    <div className="bstop"><i></i><b>Floor</b><span>−6 · 11:40</span></div>
+                    <div className="bstop bstop--anom"><i></i><b>No sale</b><span>−12 · 14:03</span></div>
+                    <div className="bstop bstop--ok"><i></i><b>Count</b><span>18u ✓ · 17:25</span></div>
+                  </div>
+                </div>
+                <div className="bcheck fl fl-c"><span className="bcheck__dot" aria-hidden="true"></span><div><b>AI flag</b><span>−12 sin venta · bay B-07</span></div></div>
+                <span className="scap">Receiving → sales floor</span>
               </div>
             </div>
             <div className="card__info">
@@ -154,7 +172,9 @@ export default function Work() {
           </div>
 
           <a className="card rv" href="https://flipiqbatch.com" target="_blank" rel="noopener">
+            <span className="card__idx" aria-hidden="true">05</span>
             <div className="card__stage" aria-hidden="true">
+              <i className="wash wash--row wash--wbatch" aria-hidden="true"></i>
               <div className="comp comp--batch">
 <div className="bstream">
                   <div className="bstream__lane">
@@ -193,13 +213,16 @@ export default function Work() {
               <p className="card__desc">10,000-row supplier lists → a short gold list in minutes. Native PDF extraction up to 300 pages, ghost-price and multi-ASIN signals.</p>
               <div className="card__meta">
                 <div className="card__tags"><span>FastAPI</span><span>Workers</span><span>Redis</span></div>
+                <span className="card__url">flipiqbatch.com</span>
                 <span className="card__arrow"><ArrowIcon /></span>
               </div>
             </div>
           </a>
 
           <div className="card rv">
+            <span className="card__idx" aria-hidden="true">06</span>
             <div className="card__stage" aria-hidden="true">
+              <i className="wash wash--row wash--wirr" aria-hidden="true"></i>
               <div className="comp comp--irr">
                 <div className="irt fl fl-a">
                   <div className="irj"><em>07:30</em><div><b>Riverside HOA</b><span>System activation</span></div><i className="ipill ipill--done">✓ $480</i></div>
@@ -220,9 +243,21 @@ export default function Work() {
           </div>
 
           <a className="card rv" href="https://www.ddimperium.com" target="_blank" rel="noopener">
+            <span className="card__idx" aria-hidden="true">07</span>
             <div className="card__stage" aria-hidden="true">
+              <i className="wash wash--row wash--wdd" aria-hidden="true"></i>
               <div className="comp comp--dd">
-                <span className="dword">IMPERIUM</span>
+                <div className="dlock fl fl-a">
+                  <span className="dword">IMPERIUM</span>
+                  <span className="dsub">Distribuidora mayorista · Miami · USA &amp; LATAM</span>
+                  <span className="dbrands">Tide · Nestlé · Hershey&rsquo;s · Dove · Gatorade · Heinz</span>
+                </div>
+                <div className="dstats fl fl-b">
+                  <div><b>0.1<i>M+</i></b><span>Unidades / año</span></div>
+                  <div><b>59<i>+</i></b><span>Puntos de venta</span></div>
+                  <div><b>3<i>h</i></b><span>Respuesta</span></div>
+                </div>
+                <div className="dcta fl fl-c"><span>Solicitar catálogo</span><i>→</i></div>
                 <span className="scap">Wholesale · MOQ 1 pallet</span>
               </div>
             </div>
@@ -231,6 +266,7 @@ export default function Work() {
               <p className="card__desc">Wholesale catalog for sellers &amp; retail — factory-direct sourcing, guaranteed authenticity and integrated logistics across the Americas &amp; Europe.</p>
               <div className="card__meta">
                 <div className="card__tags"><span>Gated catalog</span><span>MOQ · 1 pallet</span></div>
+                <span className="card__url">ddimperium.com</span>
                 <span className="card__arrow"><ArrowIcon /></span>
               </div>
             </div>

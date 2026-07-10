@@ -292,20 +292,31 @@ export default function Effects() {
       b.addEventListener("mouseleave", () => (b.style.transform = ""), { signal });
     });
 
-    document.querySelectorAll<HTMLElement>(".wgrid .card, .feat").forEach((c) => {
+    // editorial rows: the stage artifacts drift toward the cursor (desktop only)
+    const deskRows = matchMedia("(min-width: 861px)");
+    document.querySelectorAll<HTMLElement>(".wgrid .card").forEach((c) => {
+      const comp = c.querySelector<HTMLElement>(".comp");
+      if (!comp) return;
       c.addEventListener(
         "pointermove",
         (e: PointerEvent) => {
-          if (calm()) return;
+          if (calm() || !deskRows.matches) return;
           const r = c.getBoundingClientRect();
           const px = (e.clientX - r.left) / r.width - 0.5;
           const py = (e.clientY - r.top) / r.height - 0.5;
-          c.style.transform =
-            "perspective(1100px) rotateX(" + ((-py * 3.5).toFixed(2)) + "deg) rotateY(" + ((px * 4.5).toFixed(2)) + "deg) translateY(-4px)";
+          comp.style.setProperty("--dx", (px * 16).toFixed(1) + "px");
+          comp.style.setProperty("--dy", (py * 12).toFixed(1) + "px");
         },
         { signal }
       );
-      c.addEventListener("pointerleave", () => (c.style.transform = ""), { signal });
+      c.addEventListener(
+        "pointerleave",
+        () => {
+          comp.style.setProperty("--dx", "0px");
+          comp.style.setProperty("--dy", "0px");
+        },
+        { signal }
+      );
     });
 
     return () => {
