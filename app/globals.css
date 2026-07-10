@@ -379,30 +379,34 @@
   .bcheck span { display: block; margin-top: 2px; font: 500 8.5px var(--mono); letter-spacing: 0.04em; color: #a5b4fc; }
   .comp--back .scap { --cap: #5f5f86; }
 
-  /* 07 Imperium — a miniature of the house style: ivory, column rules, brass, black CTA */
+  /* 07 Imperium — a miniature of the house style: ivory, column rules, brass, gold CTA */
   .comp--dd { background:
-      radial-gradient(90% 140% at 82% 118%, rgba(196,154,56,0.24) 0%, rgba(196,154,56,0) 55%),
-      radial-gradient(120% 130% at 30% -10%, #FDF8E8 0%, #FBFAF7 52%, #F4EFE3 100%); }
-  .comp--dd::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.7;
-      background: repeating-linear-gradient(90deg, rgba(138,96,24,0.09) 0 1px, transparent 1px 25%);
+      radial-gradient(90% 140% at 82% 118%, rgba(196,154,56,0.34) 0%, rgba(196,154,56,0) 58%),
+      radial-gradient(120% 130% at 30% -10%, #FDF8E8 0%, #FBFAF7 52%, #F3EDDC 100%); }
+  .comp--dd::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.75;
+      background: repeating-linear-gradient(90deg, rgba(138,96,24,0.12) 0 1px, transparent 1px 25%);
       background-position: 12.5% 0; }
   .dlock { position: absolute; left: 18px; top: 28px; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; }
-  .dword { font: 700 31px var(--disp); letter-spacing: -0.04em; line-height: 1; color: #171208; white-space: nowrap; }
+  .dtop { display: flex; align-items: center; gap: 8px; }
+  .dmark { flex: none; width: 22px; height: 22px; border-radius: 5px; background: #171208; display: grid; place-items: center;
+      font: 700 11px var(--disp); color: #D8B044;
+      box-shadow: inset 0 0 0 1px rgba(216,176,68,0.4), 0 8px 20px rgba(23,18,8,0.28); }
+  .dword { font: 700 29px var(--disp); letter-spacing: -0.04em; line-height: 1; color: #171208; white-space: nowrap; }
   .dsub { margin-top: 8px; font: 600 8.5px var(--mono); letter-spacing: 0.18em; text-transform: uppercase; color: #8A6018; white-space: nowrap; }
-  .dbrands { display: none; margin-top: 13px; font: 500 9px var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: rgba(23,18,8,0.42); white-space: nowrap; }
+  .dbrands { display: none; margin-top: 13px; font: 500 9px var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: rgba(138,96,24,0.62); white-space: nowrap; }
   .dchain { position: absolute; left: 14px; bottom: 36px; z-index: 3; width: 250px; padding: 3px 13px;
-      background: #FFFDF6; border: 1px solid rgba(138,96,24,0.22); border-radius: 12px;
-      box-shadow: 0 18px 44px rgba(138,96,24,0.18); }
+      background: #FFFDF6; border: 1px solid rgba(138,96,24,0.32); border-radius: 12px;
+      box-shadow: 0 18px 44px rgba(138,96,24,0.22); }
   .dchain > div { display: flex; align-items: center; gap: 9px; padding: 7px 0; }
-  .dchain > div + div { border-top: 1px solid rgba(138,96,24,0.13); }
+  .dchain > div + div { border-top: 1px solid rgba(138,96,24,0.18); }
   .dchain i { flex: none; width: 13px; height: 1px; background: #A8842C; }
   .dchain b { font: 600 10px var(--body); color: #171208; white-space: nowrap; }
-  .dchain span { margin-left: auto; font: 600 7px var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(138,96,24,0.8); white-space: nowrap; }
+  .dchain span { margin-left: auto; font: 600 7px var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: #8A6018; white-space: nowrap; }
   .dcta { position: absolute; right: 12px; top: 26px; z-index: 3; display: inline-flex; align-items: center; gap: 9px;
-      background: #171208; color: #F5EFDC; border-radius: 10px; padding: 10px 14px;
-      font: 600 10.5px var(--body); letter-spacing: 0.02em; white-space: nowrap;
-      box-shadow: 0 14px 34px rgba(23,18,8,0.28); }
-  .dcta i { font-style: normal; color: #D8B044; }
+      background: linear-gradient(100deg, #DDB84E 0%, #C49A38 100%); color: #171208; border-radius: 10px; padding: 10px 14px;
+      font: 700 10.5px var(--body); letter-spacing: 0.02em; white-space: nowrap;
+      box-shadow: 0 14px 34px rgba(138,96,24,0.38), 0 0 26px rgba(216,176,68,0.28); }
+  .dcta i { font-style: normal; color: #171208; }
   .comp--dd .scap { --cap: #8A6018; }
 
   /* 06 Irrigation — dispatch day, live route */
@@ -1008,7 +1012,7 @@
     .wash--wback { right: -46px; top: -56px; width: clamp(240px, 24vw, 330px); opacity: 0.4; rotate: 26deg; background-image: url("/assets/wash/wash-indigo.png"); }
     .wash--wbatch { left: -56px; bottom: -44px; width: clamp(240px, 24vw, 330px); opacity: 0.36; rotate: 18deg; background-image: url("/assets/wash/wash-amber.png"); }
     .wash--wirr { right: -56px; bottom: -28px; width: clamp(220px, 22vw, 310px); opacity: 0.32; rotate: -12deg; background-image: url("/assets/wash/wash-cyan.png"); }
-    .wash--wdd { left: -44px; top: -56px; width: clamp(260px, 26vw, 360px); opacity: 0.46; rotate: 8deg; background-image: url("/assets/wash/wash-amber.png"); }
+    .wash--wdd { left: -44px; top: -56px; width: clamp(260px, 26vw, 360px); opacity: 0.58; rotate: 8deg; background-image: url("/assets/wash/wash-amber.png"); }
 
     /* 02 flip — the pipeline in devices: scan → analyze → verdict */
     .comp--flip { background: none; }
@@ -1067,15 +1071,17 @@
 
     /* 07 imperium — the wholesale house, unboxed */
     .comp--dd { background: none; }
-    .comp--dd::before { inset: -10% -3%; opacity: 0.85;
+    .comp--dd::before { inset: -10% -3%; opacity: 0.9;
       background:
-        radial-gradient(60% 70% at 78% 88%, rgba(196,154,56,0.26) 0%, rgba(196,154,56,0) 60%),
-        repeating-linear-gradient(90deg, rgba(138,96,24,0.10) 0 1px, transparent 1px 25%),
-        radial-gradient(120% 130% at 30% -10%, #FDF8E8 0%, #FBFAF7 52%, #F4EFE3 100%);
+        radial-gradient(60% 70% at 78% 88%, rgba(196,154,56,0.36) 0%, rgba(196,154,56,0) 62%),
+        repeating-linear-gradient(90deg, rgba(138,96,24,0.13) 0 1px, transparent 1px 25%),
+        radial-gradient(120% 130% at 30% -10%, #FDF8E8 0%, #FBFAF7 50%, #F2EBD6 100%);
       -webkit-mask-image: radial-gradient(78% 84% at 48% 48%, #000 36%, transparent 75%);
       mask-image: radial-gradient(78% 84% at 48% 48%, #000 36%, transparent 75%); }
     .dlock { left: 5%; top: 10%; }
-    .dword { font-size: clamp(52px, 5.4vw, 76px); }
+    .dtop { gap: 13px; }
+    .dmark { width: 40px; height: 40px; border-radius: 9px; font-size: 19px; }
+    .dword { font-size: clamp(48px, 4.8vw, 68px); }
     .dsub { margin-top: 11px; font-size: 10px; }
     .dbrands { display: block; }
     .dchain { left: 4%; bottom: 9%; width: min(58%, 336px); padding: 5px 16px; --t: rotate(0.6deg); }
@@ -1085,7 +1091,7 @@
     .dcta { right: 5%; top: 17%; }
     /* the route: a dashed brass arc sweeping toward the americas */
     .comp--dd::after { content: ""; position: absolute; left: 30%; right: 7%; top: 24%; bottom: 32%;
-      border-top: 1.5px dashed rgba(168,132,44,0.48); border-right: 1.5px dashed rgba(168,132,44,0.3);
+      border-top: 1.5px dashed rgba(168,132,44,0.6); border-right: 1.5px dashed rgba(168,132,44,0.42);
       border-radius: 0 100% 0 0; pointer-events: none; }
 
     /* tablet: same rows, tighter */
@@ -1094,7 +1100,8 @@
       .card__idx { font-size: 74px; -webkit-text-stroke-width: 1.2px; }
       .card__name { font-size: 28px; }
       .card__stage { min-height: 258px; }
-      .dword { font-size: 48px; }
+      .dword { font-size: 42px; }
+      .dmark { width: 30px; height: 30px; border-radius: 7px; font-size: 15px; }
       .dchain { width: min(62%, 300px); }
       .dchain b { font-size: 11px; }
       .fshot--home { display: none; }

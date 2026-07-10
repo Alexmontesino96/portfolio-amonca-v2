@@ -248,7 +248,7 @@ export default function Work() {
               <i className="wash wash--row wash--wdd" aria-hidden="true"></i>
               <div className="comp comp--dd">
                 <div className="dlock fl fl-a">
-                  <span className="dword">IMPERIUM</span>
+                  <span className="dtop"><span className="dmark" aria-hidden="true">I</span><span className="dword">IMPERIUM</span></span>
                   <span className="dsub">Distribuidora mayorista · Miami · USA &amp; LATAM</span>
                   <span className="dbrands">Tide · Nestlé · Hershey&rsquo;s · Dove · Gatorade · Heinz</span>
                 </div>
