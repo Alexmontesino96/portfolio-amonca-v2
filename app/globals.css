@@ -387,18 +387,18 @@
       background: repeating-linear-gradient(90deg, rgba(138,96,24,0.09) 0 1px, transparent 1px 25%);
       background-position: 12.5% 0; }
   .dlock { position: absolute; left: 18px; top: 28px; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; }
-  .dword { font: 700 36px var(--disp); letter-spacing: -0.04em; line-height: 1; color: #171208; white-space: nowrap; }
+  .dword { font: 700 31px var(--disp); letter-spacing: -0.04em; line-height: 1; color: #171208; white-space: nowrap; }
   .dsub { margin-top: 8px; font: 600 8.5px var(--mono); letter-spacing: 0.18em; text-transform: uppercase; color: #8A6018; white-space: nowrap; }
   .dbrands { display: none; margin-top: 13px; font: 500 9px var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: rgba(23,18,8,0.42); white-space: nowrap; }
-  .dstats { position: absolute; right: 14px; bottom: 40px; z-index: 3; display: flex;
+  .dchain { position: absolute; left: 14px; bottom: 36px; z-index: 3; width: 250px; padding: 3px 13px;
       background: #FFFDF6; border: 1px solid rgba(138,96,24,0.22); border-radius: 12px;
       box-shadow: 0 18px 44px rgba(138,96,24,0.18); }
-  .dstats > div { display: flex; flex-direction: column; gap: 3px; padding: 10px 13px; }
-  .dstats > div + div { border-left: 1px solid rgba(138,96,24,0.14); }
-  .dstats b { font: 700 18px var(--disp); letter-spacing: -0.02em; color: #171208; line-height: 1; }
-  .dstats b i { font-style: normal; font: 700 11px var(--disp); color: #A8842C; margin-left: 1px; }
-  .dstats span { font: 600 7.5px var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(138,96,24,0.78); white-space: nowrap; }
-  .dcta { position: absolute; left: 18px; top: 98px; z-index: 3; display: inline-flex; align-items: center; gap: 9px;
+  .dchain > div { display: flex; align-items: center; gap: 9px; padding: 7px 0; }
+  .dchain > div + div { border-top: 1px solid rgba(138,96,24,0.13); }
+  .dchain i { flex: none; width: 13px; height: 1px; background: #A8842C; }
+  .dchain b { font: 600 10px var(--body); color: #171208; white-space: nowrap; }
+  .dchain span { margin-left: auto; font: 600 7px var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: rgba(138,96,24,0.8); white-space: nowrap; }
+  .dcta { position: absolute; right: 12px; top: 26px; z-index: 3; display: inline-flex; align-items: center; gap: 9px;
       background: #171208; color: #F5EFDC; border-radius: 10px; padding: 10px 14px;
       font: 600 10.5px var(--body); letter-spacing: 0.02em; white-space: nowrap;
       box-shadow: 0 14px 34px rgba(23,18,8,0.28); }
@@ -1074,16 +1074,19 @@
         radial-gradient(120% 130% at 30% -10%, #FDF8E8 0%, #FBFAF7 52%, #F4EFE3 100%);
       -webkit-mask-image: radial-gradient(78% 84% at 48% 48%, #000 36%, transparent 75%);
       mask-image: radial-gradient(78% 84% at 48% 48%, #000 36%, transparent 75%); }
-    .dlock { left: 5%; top: 12%; }
+    .dlock { left: 5%; top: 10%; }
     .dword { font-size: clamp(52px, 5.4vw, 76px); }
     .dsub { margin-top: 11px; font-size: 10px; }
     .dbrands { display: block; }
-    .dstats { left: 5%; right: auto; bottom: 13%; }
-    .dstats > div { padding: 13px 17px; }
-    .dstats b { font-size: 24px; }
-    .dstats b i { font-size: 13px; }
-    .dstats span { font-size: 8.5px; }
-    .dcta { left: auto; right: 5%; top: 17%; }
+    .dchain { left: 4%; bottom: 9%; width: min(58%, 336px); padding: 5px 16px; --t: rotate(0.6deg); }
+    .dchain > div { gap: 11px; padding: 9px 0; }
+    .dchain b { font-size: 12px; }
+    .dchain span { font-size: 8px; }
+    .dcta { right: 5%; top: 17%; }
+    /* the route: a dashed brass arc sweeping toward the americas */
+    .comp--dd::after { content: ""; position: absolute; left: 30%; right: 7%; top: 24%; bottom: 32%;
+      border-top: 1.5px dashed rgba(168,132,44,0.48); border-right: 1.5px dashed rgba(168,132,44,0.3);
+      border-radius: 0 100% 0 0; pointer-events: none; }
 
     /* tablet: same rows, tighter */
     @media (max-width: 1100px) {
@@ -1092,8 +1095,8 @@
       .card__name { font-size: 28px; }
       .card__stage { min-height: 258px; }
       .dword { font-size: 48px; }
-      .dstats > div { padding: 10px 12px; }
-      .dstats b { font-size: 19px; }
+      .dchain { width: min(62%, 300px); }
+      .dchain b { font-size: 11px; }
       .fshot--home { display: none; }
       .fshot--scan { left: 8%; }
       .fshot--buy { width: 150px; top: -8%; }

@@ -252,20 +252,21 @@ export default function Work() {
                   <span className="dsub">Distribuidora mayorista · Miami · USA &amp; LATAM</span>
                   <span className="dbrands">Tide · Nestlé · Hershey&rsquo;s · Dove · Gatorade · Heinz</span>
                 </div>
-                <div className="dstats fl fl-b">
-                  <div><b>0.1<i>M+</i></b><span>Unidades / año</span></div>
-                  <div><b>59<i>+</i></b><span>Puntos de venta</span></div>
-                  <div><b>3<i>h</i></b><span>Respuesta</span></div>
+                <div className="dchain fl fl-b">
+                  <div><i></i><b>Sourcing estratégico</b><span>Origen</span></div>
+                  <div><i></i><b>Logística integrada</b><span>Tránsito</span></div>
+                  <div><i></i><b>Retail readiness</b><span>Preparación</span></div>
+                  <div><i></i><b>Cumplimiento y calidad</b><span>Garantía</span></div>
                 </div>
                 <div className="dcta fl fl-c"><span>Solicitar catálogo</span><i>→</i></div>
-                <span className="scap">Wholesale · MOQ 1 pallet</span>
+                <span className="scap">Wholesale · factory-direct</span>
               </div>
             </div>
             <div className="card__info">
               <div className="card__head"><span className="card__name"><i>07</i>Imperium Trade</span><span className="chip chip--live">Live</span></div>
               <p className="card__desc">Wholesale catalog for sellers &amp; retail — factory-direct sourcing, guaranteed authenticity and integrated logistics across the Americas &amp; Europe.</p>
               <div className="card__meta">
-                <div className="card__tags"><span>Gated catalog</span><span>MOQ · 1 pallet</span></div>
+                <div className="card__tags"><span>Gated catalog</span><span>Factory-direct</span></div>
                 <span className="card__url">ddimperium.com</span>
                 <span className="card__arrow"><ArrowIcon /></span>
               </div>
