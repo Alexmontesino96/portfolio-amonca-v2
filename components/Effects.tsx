@@ -344,7 +344,7 @@ export default function Effects() {
         const subject = "Project brief — " + d.get("name");
         const body =
           "Problem:" + String.fromCharCode(10) + d.get("problem") + String.fromCharCode(10, 10) + "— " + d.get("name") + " · " + d.get("email");
-        location.href = "mailto:hello@amonca.dev?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+        location.href = "mailto:alexmontesinocastro9@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
       },
       { signal: controller.signal }
     );

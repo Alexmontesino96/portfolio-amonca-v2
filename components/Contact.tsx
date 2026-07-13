@@ -20,7 +20,7 @@ export default function Contact() {
         </form>
         <aside className="brief__side">
           <p className="brief__note"><b>Straight to the builder.</b> Your brief lands with the person who writes the code — a reply within 24 hours, a 30-minute call, and an honest read on feasibility before any commitment.</p>
-          <a className="cta__mail" href="mailto:hello@amonca.dev">hello@amonca.dev</a>
+          <a className="cta__mail" href="mailto:alexmontesinocastro9@gmail.com">alexmontesinocastro9@gmail.com</a>
           <a className="cta__mail" href="https://github.com/Alexmontesino96" target="_blank" rel="noopener">github.com/Alexmontesino96</a>
         </aside>
       </div>
