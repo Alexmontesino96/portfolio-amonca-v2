@@ -74,6 +74,7 @@ export default function Work() {
           </div>
         </div>
 
+        <div className="wviewport">
         <div className="wgrid">
           <a className="card rv" href="https://www.getflipiq.com" target="_blank" rel="noopener">
             <span className="card__idx" aria-hidden="true">02</span>
@@ -272,6 +273,7 @@ export default function Work() {
               </div>
             </div>
           </a>
+        </div>
         </div>
 
         <div className="wcount" id="wcount" aria-hidden="true">01 / 06</div>

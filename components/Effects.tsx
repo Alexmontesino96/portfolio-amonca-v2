@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import EmblaCarousel, { type EmblaCarouselType } from "embla-carousel";
 
 /** Ported verbatim from the design's inline <script>, split into one effect per
  *  original IIFE. The ticker and bigmq marquee lanes are duplicated in JSX
@@ -377,20 +378,8 @@ export default function Effects() {
         observers.push(io2);
       }
     }
-    const g = document.querySelector(".wgrid") as HTMLElement | null;
-    const out = document.getElementById("wcount");
-    if (g && out) {
-      const n = g.children.length;
-      const pad = (x: number) => (x < 10 ? "0" : "") + x;
-      const upd = () => {
-        const max = g.scrollWidth - g.clientWidth;
-        const i = max > 40 ? Math.round((g.scrollLeft / max) * (n - 1)) : 0;
-        out.textContent = pad(i + 1) + " / " + pad(n);
-      };
-      g.addEventListener("scroll", upd, { passive: true, signal });
-      addEventListener("resize", upd, { passive: true, signal });
-      upd();
-    }
+    // NOTE: the work-carousel counter (#wcount) is now driven by Embla — see the
+    // dedicated Embla effect below. The old scrollLeft-based math lived here.
 
     return () => {
       controller.abort();
@@ -443,48 +432,100 @@ export default function Effects() {
       { passive: true, signal }
     );
 
-    const g = document.querySelector(".wgrid") as HTMLElement | null;
-    if (!g) return () => { cancelled = true; controller.abort(); if (raf1 !== null) cancelAnimationFrame(raf1); };
-    const cards = Array.prototype.slice.call(g.querySelectorAll(":scope > .card")) as (HTMLElement & { __cd?: number })[];
-    let lastL = 0, bumpAt = 0;
-    function cfx() {
-      if (calm() || !matchMedia("(max-width: 860px)").matches) return;
-      const mid = g!.scrollLeft + g!.clientWidth / 2;
-      cards.forEach((c) => {
-        const d = (c.offsetLeft + c.offsetWidth / 2 - mid) / g!.clientWidth;
-        if (c.__cd != null && Math.abs(c.__cd - d) < 0.004) return;
-        c.__cd = d;
-        let rot = d * 2.4;
-        if (Math.abs(rot) < 0.07) rot = 0;
-        c.style.setProperty("--rot", rot.toFixed(2) + "deg");
-        c.style.setProperty("--sc", (1 - Math.min(Math.abs(d) * 0.08, 0.06)).toFixed(3));
-        const comp = c.querySelector(".comp") as HTMLElement | null;
-        if (comp) comp.style.setProperty("--px", (d * -24).toFixed(1) + "px");
-      });
-      const max = g!.scrollWidth - g!.clientWidth;
-      const vL = g!.scrollLeft - lastL;
-      lastL = g!.scrollLeft;
-      const now = performance.now();
-      if (now - bumpAt > 700 && ((g!.scrollLeft <= 1 && vL < -5) || (g!.scrollLeft >= max - 1 && vL > 5))) {
-        bumpAt = now;
-        g!.style.setProperty("--bo", g!.scrollLeft <= 1 ? "0%" : "100%");
-        g!.classList.remove("bump");
-        void g!.offsetWidth;
-        g!.classList.add("bump");
-        const id = setTimeout(() => {
-          if (!cancelled) g!.classList.remove("bump");
-        }, 600);
-        timeouts.push(id);
-      }
-    }
-    g.addEventListener("scroll", cfx, { passive: true, signal });
-    cfx();
+    // The horizontal work-carousel (snap, tilt, counter) is now owned by Embla
+    // in the dedicated effect below. Only the vertical jelly-scroll lives here.
 
     return () => {
       cancelled = true;
       controller.abort();
       if (raf1 !== null) cancelAnimationFrame(raf1);
       timeouts.forEach(clearTimeout);
+    };
+  }, []);
+
+  // ── work carousel: Embla (snap + counter + subtle tilt), mobile only ──
+  useEffect(() => {
+    const viewport = document.querySelector(".wviewport") as HTMLElement | null;
+    const container = document.querySelector(".wgrid") as HTMLElement | null;
+    const out = document.getElementById("wcount");
+    if (!viewport || !container) return;
+
+    const mq = matchMedia("(max-width: 860px)");
+    const pad = (x: number) => (x < 10 ? "0" : "") + x;
+    let embla: EmblaCarouselType | null = null;
+    let raf = 0;
+
+    const slides = () =>
+      Array.prototype.slice.call(container.querySelectorAll(":scope > .card")) as HTMLElement[];
+
+    function setCounter() {
+      if (!embla || !out) return;
+      const total = embla.slideNodes().length;
+      out.textContent = pad(embla.selectedScrollSnap() + 1) + " / " + pad(total);
+    }
+
+    // subtle depth tilt: side cards recede (--p: 0 centred → 1 aside)
+    function tilt() {
+      if (!embla) return;
+      const calm = document.body.getAttribute("data-motion") === "calm";
+      const progress = embla.scrollProgress();
+      const snaps = embla.scrollSnapList();
+      embla.slideNodes().forEach((node, i) => {
+        let diff = snaps[i] - progress;
+        // wrap-safe for potential loop; here loop is off so this is a no-op
+        const p = calm ? 0 : Math.min(Math.abs(diff) / 0.9, 1);
+        (node as HTMLElement).style.setProperty("--p", p.toFixed(3));
+      });
+    }
+
+    function onScroll() {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        tilt();
+      });
+    }
+
+    function init() {
+      if (embla || !mq.matches) return;
+      embla = EmblaCarousel(viewport!, {
+        align: "center",
+        containScroll: false,
+        skipSnaps: false,
+        dragThreshold: 8,
+        duration: 22,
+      });
+      embla.on("select", setCounter);
+      embla.on("scroll", onScroll);
+      embla.on("reInit", () => {
+        setCounter();
+        tilt();
+      });
+      setCounter();
+      tilt();
+    }
+
+    function destroy() {
+      if (!embla) return;
+      embla.destroy();
+      embla = null;
+      // clear any residual tilt so desktop grid renders flat
+      slides().forEach((n) => n.style.removeProperty("--p"));
+      if (out) out.textContent = "01 / " + pad(slides().length);
+    }
+
+    function onChange() {
+      if (mq.matches) init();
+      else destroy();
+    }
+
+    init();
+    mq.addEventListener("change", onChange);
+
+    return () => {
+      mq.removeEventListener("change", onChange);
+      if (raf) cancelAnimationFrame(raf);
+      destroy();
     };
   }, []);
 
